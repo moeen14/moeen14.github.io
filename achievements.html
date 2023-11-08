@@ -1,0 +1,417 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-XPZTR3LYF8"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-XPZTR3LYF8');
+		</script>
+
+		<title>Achievements of Moeen Ul Islam</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+		<style>
+			#image-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+            }
+		
+			.image-button {
+                padding: 10px;
+                background: rgb(255, 255, 255);
+                color: rgb(0, 0, 0); /* Change the color of the buttons */
+                border: none;
+                cursor: pointer;
+                text-transform: none; /* Remove all caps */
+            }
+
+            .image-button:hover {
+                background: rgba(176, 176, 176, 0.7); /* Darken the background on hover */
+            }
+
+            #prevButton {
+                position: absolute;
+                bottom: 0;
+                left: 50px; /* Adjust the spacing between buttons by changing this value */
+            }
+
+            #nextButton {
+                position: absolute;
+                bottom: 0;
+                right: 50px; /* Adjust the spacing between buttons by changing this value */
+            }
+
+            .project-container {
+                display: flex;
+            }
+
+            .project-list {
+                background-color: #f2f2f2;
+                padding: 20px;
+                width: 30%;
+            }
+
+            .project-list h2 {
+                font-size: 24px;
+                margin: 0 0 10px;
+            }
+
+            .project-list ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .project-list li {
+                cursor: pointer;
+                margin: 5px 0;
+                transition: background-color 0.3s;
+                padding: 15px;
+                border-radius: 10px;
+                font-weight: bold; /* Set the font weight to make titles bold */
+                color: #000000; /* Set the color for the titles */
+            }
+
+            .project-list li:hover {
+                background-color: #e0e0e0;
+            }
+
+            .project-list .selected {
+                background-color: #ff5757;
+                color: rgb(255, 255, 255);
+            }
+
+            .project-list .selected .project-date {
+                color: #fff; /* Set the date's color to white when a project is selected */
+            }
+
+            .project-details {
+                width: 70%;
+                padding: 20px;
+            }
+            .project-date {
+                float: right;
+                margin-left: 10px; /* Adjust the margin as needed for spacing */
+                color: #7d7d7d; /* Set the color for the date */
+                font-size: 14px; /* Set the font size for the date */
+            }
+
+                    
+		</style>
+		
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+							<header id="header">
+								<a class="logo"><strong>Website</strong> by Moeen</a>
+								<ul class="icons">
+									<li><a href="https://www.linkedin.com/in/moeen-ul-islam-973736285" target="_blank" class="fab fa-linkedin" title="LinkedIn" style="font-size: 20px;"></a></li>
+									<li><a href="notdeveloped.html" target="_blank" class="fab fa-researchgate" title="ResearchGate" style="font-size: 20px;"></a></li>
+									<li><a href="notdeveloped.html" target="_blank" class="fab fa-github" title="GitHub" style="font-size: 20px;"></a></li>
+									<li><a href="https://www.facebook.com/profile.php?id=100073217057451&mibextid=ZbWKwL" target="_blank" class="fab fa-facebook" title="Facebook" style="font-size: 20px;"></a></li>
+									<li><a href="https://drive.google.com/file/d/17LY-CSfBv1PS7pn2vEMGtH5DsltEV3TL/view?usp=sharing" target="_blank" class="fas fa-file" title="Resume" style="font-size: 20px;"></a></li>
+								</ul>
+							</header>
+
+							<!-- Content -->
+                            <section>
+                                <div class="project-container">
+                                    <!-- Project List (1/3 of the screen) -->
+                                    <div class="project-list" style="float: left; width: 33%;">
+                                        <h2>Achievements List</h2>
+                                        <ul>
+                                            <li onclick="showProject(0)">Dean's Award for the Best Capstone Project<span class="project-date">05.10.23</span></li>
+                                            <li onclick="showProject(1)">Dean's List Honors for Academic Excellence<span class="project-date">01.03.23</span></li>
+                                            <!-- Add more project items as needed -->
+                                        </ul>
+                                        
+                                    </div>
+                                    <!-- Project Details (2/3 of the screen) -->
+                                    <div class="project-details" style="float: left; width: 66%;">
+                                        <div id="image-container" style="position: relative;">
+                                            <img id="image" src="images/Achievements/Dean's Award/Image 01.PNG" alt="Image" width="600" height="400" />
+                                            <div>
+                                                <button id="prevButton" class="image-button" onclick="prevImage()">Prev</button>
+                                                <button id="nextButton" class="image-button" onclick="nextImage()">Next</button>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <h2 id="project-title" style="margin-top: 20px;">Project 1 Title</h2>
+                                        <p id="project-description" style="color: rgb(0, 0, 0)">Project 1 Description</p>                                        
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Contact Information and Form Side by Side -->
+							<section style="display: flex;">
+								<!-- Contact Information -->
+								<div style="flex: 1; padding: 10px;">
+									<header class="major">
+										<h2>Contact Me</h2>
+									</header>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><b>moeen14.aiub@gmail.com</b></li>
+										<li class="icon solid fa-phone"><b>01751777569</b></li>
+										<li class="icon solid fa-home"><b>Khilgaon, Dhaka - 1219</b></li>
+									</ul>
+									<div style="margin-top: 50px; text-align: left;">
+										<ul class="icons">
+											<li><a href="https://www.linkedin.com/in/moeen-ul-islam-973736285" target="_blank" class="fab fa-linkedin" title="LinkedIn" style="font-size: 25px; ;"></a></li>
+											<li><a href="notdeveloped.html" target="_blank" class="fab fa-researchgate" title="ResearchGate" style="font-size: 25px; "></a></li>
+											<li><a href="https://github.com/moeen14" target="_blank" class="fab fa-github" title="GitHub" style="font-size: 25px; ;"></a></li>
+											<li><a href="https://www.facebook.com/profile.php?id=100073217057451&mibextid=ZbWKwL" target="_blank" class="fab fa-facebook" title="Facebook" style="font-size: 25px;"></a></li>
+										</ul>
+										<p style="font-size: 14px; text-align: left;"><b>Connect with me on social media</b></p>
+									</div>
+									
+								</div>
+
+								<!-- Contact Form -->
+								<div style="flex: 1; padding: 10px;">
+									<header class="major">
+										<h2>Leave a Message</h2>
+									</header>
+									<form action="https://formspree.io/f/xbjvweow" method="POST">
+										<div class="field half first">
+											<label for="name">Name</label>
+											<input type="text"  name="name" id="name" required style="color: black;">
+										</div>
+										<div class="field half">
+											<label for="_replyto">Email</label>
+											<input type="email" name="_replyto" id="_replyto" required style="color: black;">
+										</div>
+										<div class="field" style="padding-bottom: 10px;">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4" required style="color: black;"></textarea>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+										</ul>										
+									</form>
+									<!-- Confirmation Message -->
+									<div id="confirmation-message" style="display: none; Color: #030303">
+										<b>Thank you for your message. We'll get back to you soon.</b>
+									</div>
+								</div>
+							</section>	
+
+							<footer id="footer" style="background-color: #333; padding: 10px;">
+								<p class="copyright" style="color: #fff; text-align: center; margin: 0;">
+									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: Nov 9, 2023
+								</p>
+							</footer>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+				<div id="sidebar">
+					<div class="inner">
+						<!-- Menu -->
+							<nav id="menu">
+								<header class="major">
+									<h2 style="color: #000000;">Menu</h2>
+								</header>
+								<ul>
+									<li><a href="index.html" style="color: #000000;">Homepage</a></li>
+									<li><a href="projects.html" style="color: #000000;">Projects</a></li>
+									<li><a href="achievements.html" style="color: #000000;">Achievements</a></li>
+									<li>
+										<span class="opener" style="color: #000000;">Competitions</span>
+										<ul>
+											<li><a href="notdeveloped.html" style="color: #000000;">Line Follower Robot</a></li>
+											<li><a href="notdeveloped.html" style="color: #000000;">Soccer Bot</a></li>
+											<li><a href="notdeveloped.html" style="color: #000000;">Project Presentation</a></li>
+											<li><a href="notdeveloped.html" style="color: #000000;">Poster Presentation</a></li>
+										</ul>
+									</li>
+									<li><a href="notdeveloped.html" style="color: #000000;">Fields of Interest</a></li>
+									<li><a href="notdeveloped.html" style="color: #000000;">Publications</a></li>
+									<li><a href="https://drive.google.com/file/d/1O7GQjVPY8hIKv11SUmSpBl-k42eYI0zb/view?usp=sharing" target="_blank" style="color: #000000;">Resume</a></li>
+								</ul>
+							</nav>
+
+						<!-- Section -->
+							<section>
+								<header class="major">
+									<h2>Recent</h2>
+								</header>
+								<div class="mini-posts">
+									<article>
+										<a href="achievements.html" title ="Achievements: Dean's Award" class="image"><img src="images/Best Project.jpg" alt="" /></a>
+										<p><b>Awarded the "Deans Award" for the best Capstone Project</b></p>
+									</article>
+									<article>
+										<a href="projects.html" title ="Projects: Quadureped Robot" class="image"><img src="images/Quadruped Thumbnail.jpg" alt="" /></a>
+										<p><b>Multi-Functional Quadruped Robot with Advanced Locomotion, Remote Operability and Cognitive Capabilities</b></p>
+									</article>
+									<article>
+										<a href="projects.html" title ="Projects: Night-Guard 360 Sentinel" class="image"><img src="images/Night-Guard 360.jpg" alt="" /></a>
+										<p><b>Introducing The Night-Guard 360 Sentinel: Advance Autonomus Surveillance Robot</b></p>
+									</article>
+								</div>								
+							</section>
+
+						  
+
+						<!-- Section -->
+							<section>
+								<header class="major">
+									<h2>Get in touch</h2>
+								</header>
+								<ul class="contact">
+									<li class="icon solid fa-envelope"><b>moeen14.aiub@gmail.com</b></li>
+									<li class="icon solid fa-phone"><b>01751777569</b></li>
+									<li class="icon solid fa-home"><b>Khilgaon, Dhaka - 1219</b></li>
+								</ul>
+							</section>
+
+						<!-- Footer -->
+							<footer id="footer">
+								<p class="copyright" style = "color: #000000;">&copy; All rights reserved | Created by <b>Moeen Ul Islam</b></p>
+							</footer>
+
+					</div>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+                // Define an array of project data
+                const projects = [
+                    {
+                        title: "Dean's Award for the Best Capstone Project (Summer 22-23)",
+                        description: "We are thrilled to have been awarded the 'Dean's Award' for our exceptional eight-month-long dedication to the project titled 'Multi-Functional Quadruped Robot with Advanced Locomotion, Remote Operability, and Cognitive Capabilities.' This journey was a labor of love, and we extend our heartfelt thanks to our esteemed faculty members and mentors, particularly our suppervisor, Mr. Chowdhury Akram Hossain, Associate Professor and Department Head of CoE, and Dr. Shameem Ahmad, our External Supervisor and Assistant Professor, who played crucial roles in guiding us to success. It's a moment of gratitude and celebration, and I am personally humbled and thankful for the incredible opportunity and the unyielding spirit that brought this vision to life.",
+                        images: [
+                            "images/Achievements/Dean's Award/Image 01.PNG",
+                            "images/Achievements/Dean's Award/Image 02.PNG",
+                            "images/Achievements/Dean's Award/Image 03.PNG",
+                            "images/Achievements/Dean's Award/Image 04.PNG",
+                        ],                        
+                    },
+                    {
+                        title: "Dean's List Honors for Academic Excellence",
+                        description: "I am delighted to have been consistently recognized on the 'Dean's List Honors' for academic excellence in multiple semesters, including the Fall semesters of 20-21, 21-22, 22-23, and the Spring semesters of 20-21 and 21-22. This achievement reflects not only my dedication and hard work but also the unwavering support of my dedicated faculty and the camaraderie of my classmates. It's a testament to the belief that when you put your heart and soul into your academic journey, the rewards are bound to follow. I am deeply thankful for this recognition and excited to continue this journey of excellence.",
+                        images: [
+                            "images/Achievements/Dean's List Honors/Image 01.PNG",
+                            "images/Achievements/Dean's List Honors/Image 02.PNG",
+                        ],
+                        
+                        
+                    },
+                    
+                    // Add more project data as needed
+                ];
+            
+                let currentProjectIndex = 0;
+                let currentImageIndex = 0;
+            
+                function showProject(index) {
+                    // Remove the "selected" class from all project list items
+                    const projectListItems = document.querySelectorAll('.project-list li');
+                    projectListItems.forEach(item => item.classList.remove('selected'));
+
+                    // Add the "selected" class to the clicked project title
+                    const selectedProjectTitle = projectListItems[index];
+                    selectedProjectTitle.classList.add('selected');
+
+                    currentProjectIndex = index;
+
+                    // Reset currentImageIndex to 0 for the new project
+                    currentImageIndex = 0;
+
+                    updateProjectDetails(); // Update project details
+                    updateImage(); // Automatically update the image
+                }
+            
+                function nextImage() {
+                    currentImageIndex = (currentImageIndex + 1) % projects[currentProjectIndex].images.length;
+                    updateImage();                    
+                }
+
+                function prevImage() {
+                    currentImageIndex = (currentImageIndex - 1 + projects[currentProjectIndex].images.length) % projects[currentProjectIndex].images.length;
+                    updateImage();
+                    
+                }
+
+            
+                function updateProjectDetails() {
+                    const projectTitle = document.getElementById("project-title");
+                    const projectDescription = document.getElementById("project-description");
+
+                    const currentProject = projects[currentProjectIndex];
+                    projectTitle.textContent = currentProject.title;
+                    projectDescription.textContent = currentProject.description;
+
+                    // Set the initial image description
+                    
+                    updateImage();
+                }
+            
+                function updateImage() {
+                    const projectImage = document.getElementById("image");
+                    const currentProject = projects[currentProjectIndex];
+                    projectImage.src = currentProject.images[currentImageIndex];
+                }
+                
+                showProject(0);
+            </script>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                const form = document.querySelector("form");
+                const confirmationMessage = document.getElementById("confirmation-message");
+
+                form.addEventListener("submit", async function (e) {
+                    e.preventDefault();
+
+                    // Use the Fetch API to send the form data to Formspree
+                    const formData = new FormData(form);
+                    const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        Accept: "application/json",
+                    },
+                    });
+
+                    // Show the confirmation message and hide the form
+                    if (response.ok) {
+                    form.style.display = "none";
+                    confirmationMessage.style.display = "block";
+                    }
+                });
+                });
+            </script>
+			
+			
+	</body>
+</html>
