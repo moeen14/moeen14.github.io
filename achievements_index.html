@@ -16,7 +16,7 @@
 		gtag('config', 'G-XPZTR3LYF8');
 		</script>
 
-		<title>Projects by Moeen Ul Islam</title>
+		<title>Achievements of Moeen Ul Islam</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -34,11 +34,11 @@
                 margin: 0 auto; /* Center the image within the container */
             }
 
-            /* CSS for the new project sidebar */
-            #project-sidebar {
+            /* CSS for the new achievement sidebar */
+            #achievement-sidebar {
                 position: fixed;
                 top: 0;
-                right: -350px; /* Initially hide the project sidebar off the screen */
+                right: -350px; /* Initially hide the achievement sidebar off the screen */
                 height: 100%;
                 width: 350px;
                 background: #fff;
@@ -47,11 +47,11 @@
                 padding-left: 0px;
             }
 
-            #project-sidebar.show {
-                right: 0; /* Show the project sidebar when the 'show' class is added */
+            #achievement-sidebar.show {
+                right: 0; /* Show the achievement sidebar when the 'show' class is added */
             }
 
-            .toggle-project-sidebar {
+            .toggle-achievement-sidebar {
                 position: fixed;
                 top: 10px;
                 right:80px;
@@ -60,7 +60,7 @@
                 z-index: 1100;
             }
 
-            .project-description {
+            .achievement-description {
                 color: #000000;
                 text-align: left;
                 padding-left: 100px;
@@ -68,8 +68,8 @@
             }
             
 
-            /* Style for project list */
-            .project-list {
+            /* Style for achievement list */
+            .achievement-list {
                 list-style: none;
                 padding: 10;
                 cursor: pointer;
@@ -77,8 +77,8 @@
                 padding-top: 43px;
             }
 
-            /* Style for individual project items */
-            .project-list li {
+            /* Style for individual achievement items */
+            .achievement-list li {
                 padding: 10px;
                 font-size: 16px;
                 color: #333; /* Adjust the color as needed */
@@ -86,27 +86,27 @@
                 transition: background-color 0.3s; /* Smooth transition effect for background color */
             }
 
-            /* Hover effect for individual project items */
-            .project-list li:hover {
+            /* Hover effect for individual achievement items */
+            .achievement-list li:hover {
                 background-color: #f0f0f0; /* Change background color on hover */
             }
 
-            /* Style for the selected project item */
-            .project-list li.selected {
+            /* Style for the selected achievement item */
+            .achievement-list li.selected {
                 background-color: #f0f0f0; /* Change the background color */
                 font-weight: bold; /* Example: Make the text bold */
                 /* Add any other styles to indicate selection */
             }
 
             @media screen and (max-width: 767px) {
-                .toggle-project-sidebar {
+                .toggle-achievement-sidebar {
                     /* New positioning for mobile devices */
                     top: 50px;
                     right: 20px;
                     font-size: 18px;
                 }
 
-                .project-list {
+                .achievement-list {
                     list-style: none;
                     padding: 0;
                     cursor: pointer;
@@ -114,7 +114,7 @@
                     padding-top: 82px;
                 }
 
-                .project-description {
+                .achievement-description {
                     padding-left: 0px; /* Adjust the padding as needed for mobile devices */
                     padding-right: 0px; /* Adjust the padding as needed for mobile devices */
                 }
@@ -146,35 +146,27 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1>Projects</h1>
+										<h1>Achievements</h1>
 									</header>
 
-                                    <a class="toggle-project-sidebar"><i class="fas fa-bars"></i> Project List </a>
+                                    <a class="toggle-achievement-sidebar"><i class="fas fa-bars"></i> Achievement List </a>
 
-                                    <div id="project-sidebar">
-                                        <!-- List of projects with titles -->
+                                    <div id="achievement-sidebar">
+                                        <!-- List of achievements with titles -->
                                         <div class="sidebar-content">
-                                            <ul class="project-list">
-                                                <li data-project="project1" class="selected">
+                                            <ul class="achievement-list">
+                                                <li data-achievement="achievement1" class="selected">
                                                     <a style="color: #000">
-                                                        Multi-Functional Quadruped Robot with Advance Locomotion, Remote Operability and Cognitive Capabilities
+                                                        Dean's Award for the Best Capstone Project (Summer 22-23)
                                                         <span style="display: block; font-size: 12px;">Date: October 5, 2023</span>
                                                     </a>
                                                 </li>
-                                                <li data-project="project2">
-                                                    <a href="projects_nightgaurd360.html" style="color: #000">
-                                                        Introducing The Night-Guard 360 Sentinel: Advanced Autonomous Surveillance Robot
-                                                        <span style="display: block; font-size: 12px;">Date: September 25, 2023</span>
+                                                <li data-achievement="achievement2">
+                                                    <a href="achievements_deanslist.html" style="color: #000">
+                                                        Dean's List Honors for Academic Excellence
+                                                        <span style="display: block; font-size: 12px;">Date: March 1, 2023</span>
                                                     </a>
-                                                </li>
-                                                <li data-project="project3">
-                                                    <a href="projects_cycloidal.html" style="color: #000">
-                                                        Development of a 3D printed Stepper Motor Based Cycloidal Drive
-                                                        <span style="display: block; font-size: 12px;">Date: August 25, 2023</span>
-                                                    </a>
-                                                </li>
-
-                                            
+                                                </li>                                           
 
                                             </ul>
                                         </div>
@@ -182,9 +174,9 @@
 
 
                                     <div class="image-container">
-                                        <span class="image main"><img src="images/Projects/Quadruped Robot/Image 01.jpg" alt="Project Image" /></span>
-                                        <h3 style="color: #000000">Multi-Functional Quadruped Robot with Advance Locomotion, Remote Operability and Cognitive Capabilities</h3>
-                                        <p class="project-description">In recent years, quadruped robots have gained prominence due to their superior performance compared to wheeled counterparts in various domains. Despite their potential, existing consumer-level quadruped robots often suffer from high costs, component sourcing challenges, and increased power consumption. To address these limitations, this project presents a versatile quadrupedal robot with advanced locomotion, remote operability, and cognitive capabilities. It features a Raspberry Pi for computation, Arduino boards for motor control, and employs twin gear cycloidal drives with NEMA 17 stepper motors and inverse kinematics algorithms for precise leg movements, enabling diverse mobility and obstacle avoidance. The robot offers real-time video streaming, object detection using OpenCV and TensorFlow Lite, and a user-friendly GUI for manual control and human detection. Integration of GPS APIs enhances its utility in surveillance, monitoring, and search and rescue, all while maintaining affordability and sustainability through 3D printed components, ultimately resulting in an accessible and efficient quadruped robot.</p>
+                                        <span class="image main"><img src="images/Achievements/Dean's Award/Image 01.jpg" alt="achievement Image" /></span>
+                                        <h3 style="color: #000000">Dean's Award for the Best Capstone Project (Summer 22-23)</h3>
+                                        <p class="achievement-description">We are thrilled to have been awarded the 'Dean's Award' for our exceptional eight-month-long dedication to the project titled 'Multi-Functional Quadruped Robot with Advanced Locomotion, Remote Operability, and Cognitive Capabilities.' This journey was a labor of love, and we extend our heartfelt thanks to our esteemed faculty members and mentors, particularly our suppervisor, Mr. Chowdhury Akram Hossain, Associate Professor and Department Head of CoE, and Dr. Shameem Ahmad, our External Supervisor and Assistant Professor, who played crucial roles in guiding us to success. It's a moment of gratitude and celebration, and I am personally humbled and thankful for the incredible opportunity and the unyielding spirit that brought this vision to life.</p>
                                     </div>                  
 
 									
@@ -334,33 +326,20 @@
 			<script src="assets/js/main.js"></script>
 
             <script>
-                // JavaScript for project sidebar toggle
+                // JavaScript for achievement sidebar toggle
                 document.addEventListener('DOMContentLoaded', function () {
-                    const projectSidebar = document.getElementById('project-sidebar');
-                    const toggleProjectBtn = document.querySelector('.toggle-project-sidebar');
+                    const achievementSidebar = document.getElementById('achievement-sidebar');
+                    const toggleachievementBtn = document.querySelector('.toggle-achievement-sidebar');
             
-                    toggleProjectBtn.addEventListener('click', function () {
-                        projectSidebar.classList.toggle('show');
+                    toggleachievementBtn.addEventListener('click', function () {
+                        achievementSidebar.classList.toggle('show');
                     });
 
                     const images = [
-                        'images/Projects/Quadruped Robot/Image 01.jpg',
-                        'images/Projects/Quadruped Robot/Image 02.jpg',
-                        'images/Projects/Quadruped Robot/Image 03.jpg',
-                        "images/Projects/Quadruped Robot/Image 05.jpg",
-                        "images/Projects/Quadruped Robot/Image 06.jpg",
-                        "images/Projects/Quadruped Robot/Image 07.jpg",
-                        "images/Projects/Quadruped Robot/Image 08.jpg",
-                        "images/Projects/Quadruped Robot/Image 09.jpg",
-                        "images/Projects/Quadruped Robot/Image 10.jpg",
-                        "images/Projects/Quadruped Robot/Image 11.jpg",
-                        "images/Projects/Quadruped Robot/Image 12.jpg",
-                        "images/Projects/Quadruped Robot/Image 13.jpg",
-                        "images/Projects/Quadruped Robot/Image 14.jpg",
-                        "images/Projects/Quadruped Robot/Image 15.jpg",
-                        "images/Projects/Quadruped Robot/Image 16.jpg",
-                        "images/Projects/Quadruped Robot/Image 17.jpg",
-                        "images/Projects/Quadruped Robot/Image 18.jpg",
+                        "images/Achievements/Dean's Award/Image 01.jpg",
+                        "images/Achievements/Dean's Award/Image 02.jpg",
+                        "images/Achievements/Dean's Award/Image 03.jpg",
+                        "images/Achievements/Dean's Award/Image 04.jpg",
                         // Add more image paths as needed
                     ];
 
