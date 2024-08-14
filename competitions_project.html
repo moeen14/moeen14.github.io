@@ -1,0 +1,388 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-XPZTR3LYF8"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-XPZTR3LYF8');
+		</script>
+
+		<title>Competitions of Moeen Ul Islam</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <style>
+            .image-container {
+                text-align: center; /* Align contents to the center */
+                margin: 0 auto; /* Center the container horizontally */
+            }
+
+            .image-container img {
+                width: 100%; /* Fill the container width */
+                max-width: 800px; /* Set a maximum width if needed */
+                height: auto; /* Maintain aspect ratio */
+                display: block; /* Remove any default inline styles */
+                margin: 0 auto; /* Center the image within the container */
+            }
+
+            /* CSS for the new competition sidebar */
+            #competition-sidebar {
+                position: fixed;
+                top: 0;
+                right: -350px; /* Initially hide the competition sidebar off the screen */
+                height: 100%;
+                width: 350px;
+                background: #fff;
+                transition: all 0.3s ease;
+                z-index: 1000;
+                padding-left: 0px;
+            }
+
+            #competition-sidebar.show {
+                right: 0; /* Show the competition sidebar when the 'show' class is added */
+            }
+
+            .toggle-competition-sidebar {
+                position: fixed;
+                top: 10px;
+                right:80px;
+                font-size: 18px;
+                cursor: pointer;
+                z-index: 1100;
+            }
+
+            .competition-description {
+                color: #000000;
+                text-align: left;
+                padding-left: 100px;
+                padding-right: 100px;
+            }
+            
+
+            /* Style for competition list */
+            .competition-list {
+                list-style: none;
+                padding: 10;
+                cursor: pointer;
+                margin-left: 10px; /* Adjust the left margin as needed */
+                padding-top: 43px;
+            }
+
+            /* Style for individual competition items */
+            .competition-list li {
+                padding: 10px;
+                font-size: 16px;
+                color: #333; /* Adjust the color as needed */
+                border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
+                transition: background-color 0.3s; /* Smooth transition effect for background color */
+            }
+
+            /* Hover effect for individual competition items */
+            .competition-list li:hover {
+                background-color: #f0f0f0; /* Change background color on hover */
+            }
+
+            /* Style for the selected competition item */
+            .competition-list li.selected {
+                background-color: #f0f0f0; /* Change the background color */
+                font-weight: bold; /* Example: Make the text bold */
+                /* Add any other styles to indicate selection */
+            }
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+            }
+
+            .column {
+                flex: 1 1 50%; /* Two columns */
+            }
+
+            .column img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            @media screen and (max-width: 767px) {
+                .toggle-competition-sidebar {
+                    /* New positioning for mobile devices */
+                    top: 50px;
+                    right: 20px;
+                    font-size: 18px;
+                }
+
+                .competition-list {
+                    list-style: none;
+                    padding: 0;
+                    cursor: pointer;
+                    margin-left: 10px; /* Adjust the left margin as needed */
+                    padding-top: 82px;
+                }
+
+                .competition-description {
+                    padding-left: 0px; /* Adjust the padding as needed for mobile devices */
+                    padding-right: 0px; /* Adjust the padding as needed for mobile devices */
+                }
+
+                .column {
+                    flex: 1 0 100%; /* One column for mobile */
+                    margin-bottom: 15px;
+                }
+            }
+        </style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+							<header id="header">
+								<a class="logo"><strong>Website</strong> by Moeen</a>
+								<ul class="icons">
+									<li><a href="https://www.linkedin.com/in/moeen-ul-islam-973736285" target="_blank" class="fab fa-linkedin" title="LinkedIn" style="font-size: 20px;"></a></li>
+									<li><a href="notdeveloped.html" target="_blank" class="fab fa-researchgate" title="ResearchGate" style="font-size: 20px;"></a></li>
+									<li><a href="notdeveloped.html" target="_blank" class="fab fa-github" title="GitHub" style="font-size: 20px;"></a></li>
+									<li><a href="https://www.facebook.com/profile.php?id=100073217057451&mibextid=ZbWKwL" target="_blank" class="fab fa-facebook" title="Facebook" style="font-size: 20px;"></a></li>
+									<li><a href="https://drive.google.com/file/d/17LY-CSfBv1PS7pn2vEMGtH5DsltEV3TL/view?usp=sharing" target="_blank" class="fas fa-file" title="Resume" style="font-size: 20px;"></a></li>
+								</ul>
+							</header>
+
+                            
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Project Presentation</h1>
+									</header>
+
+                                    <a class="toggle-competition-sidebar"><i class="fas fa-bars"></i> Competition List </a>
+
+                                    <div id="competition-sidebar">
+                                        <!-- List of competitions with titles -->
+                                        <div class="sidebar-content">
+                                            <ul class="competition-list">
+                                                <li data-competition="competition1" class="selected">
+                                                    <a href="competitions_lfr.html" style="color: #000">
+                                                        Line Follower Robot                                                        
+                                                    </a>
+                                                </li>
+                                                <li data-competition="competition2">
+                                                    <a href="competitions_sb.html" style="color: #000">
+                                                        Soccer Bot                                                        
+                                                    </a>
+                                                </li>   
+                                                <li data-competition="competition3">
+                                                    <a style="color: #000">
+                                                        Project Presentation
+                                                    </a>
+                                                </li>
+                                                <li data-competition="competition4">
+                                                    <a href="competitions_presentation.html" style="color: #000">
+                                                        Poster Presentation
+                                                    </a>
+                                                </li>                                        
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+                                    <h2>Title 1</h2>
+                                    <div class="row">
+                                        <div class="column">
+                                            <img src="images/photo1.jpg" alt="Photo 1" />
+                                        </div>
+                                        <div class="column">
+                                            <p>Description for Photo 1</p>
+                                        </div>
+                                    </div>
+
+                                    <h2>Title 1</h2>
+                                    <div class="row">
+                                        <div class="column">
+                                            <img src="images/photo1.jpg" alt="Photo 1" />
+                                        </div>
+                                        <div class="column">
+                                            <p>Description for Photo 1</p>
+                                        </div>
+
+                                        <div class="column">
+                                            <p>Description for Photo 2</p>
+                                        </div>
+                                        <div class="column">
+                                            <img src="images/photo1.jpg" alt="Photo 2" />
+                                        </div>
+                                    </div>
+									
+								</section>
+
+                                <!-- Contact Information and Form Side by Side -->
+                                <section style="display: flex;">
+                                    <!-- Contact Information -->
+                                    <div style="flex: 1; padding: 10px;">
+                                        <header class="major">
+                                            <h2>Contact Me</h2>
+                                        </header>
+                                        <ul class="contact">
+                                            <li class="icon solid fa-envelope"><b>moeen14.aiub@gmail.com</b></li>
+                                            <li class="icon solid fa-phone"><b>01751777569</b></li>
+                                            <li class="icon solid fa-home"><b>Khilgaon, Dhaka - 1219</b></li>
+                                        </ul>
+                                        <div style="margin-top: 50px; text-align: left;">
+
+                                            <p style="font-size: 14px; text-align: left;"><b>Connect with me on social media</b></p>
+                                            <ul class="icons">
+                                                <li><a href="https://www.linkedin.com/in/moeen-ul-islam-973736285" target="_blank" class="fab fa-linkedin" title="LinkedIn" style="font-size: 25px; ;"></a></li>
+                                                <li><a href="notdeveloped.html" target="_blank" class="fab fa-researchgate" title="ResearchGate" style="font-size: 25px; "></a></li>
+                                                <li><a href="https://github.com/moeen14" target="_blank" class="fab fa-github" title="GitHub" style="font-size: 25px; ;"></a></li>
+                                                <li><a href="https://www.facebook.com/profile.php?id=100073217057451&mibextid=ZbWKwL" target="_blank" class="fab fa-facebook" title="Facebook" style="font-size: 25px;"></a></li>
+                                            </ul>
+                                            
+                                        </div>
+                                        
+                                    </div>
+
+                                    <!-- Contact Form -->
+                                    <div style="flex: 1; padding: 10px;">
+                                        <header class="major">
+                                            <h2>Leave a Message</h2>
+                                        </header>
+                                        <form action="https://formspree.io/f/xbjvweow" method="POST">
+                                            <div class="field half first">
+                                                <label for="name">Name</label>
+                                                <input type="text"  name="name" id="name" required style="color: black;">
+                                            </div>
+                                            <div class="field half">
+                                                <label for="_replyto">Email</label>
+                                                <input type="email" name="_replyto" id="_replyto" required style="color: black;">
+                                            </div>
+                                            <div class="field" style="padding-bottom: 10px;">
+                                                <label for="message">Message</label>
+                                                <textarea name="message" id="message" rows="4" required style="color: black;"></textarea>
+                                            </div>
+                                            <ul class="actions">
+                                                <li><input type="submit" value="Send Message" class="primary" /></li>
+                                            </ul>										
+                                        </form>
+                                        <!-- Confirmation Message -->
+                                        <div id="confirmation-message" style="display: none; Color: #030303">
+                                            <b>Thank you for your message. We'll get back to you soon.</b>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <footer id="footer" style="background-color: #333; padding: 10px;">
+                                    <p class="copyright" style="color: #fff; text-align: center; margin: 0;">
+                                        &copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: Nov 17, 2023
+                                    </p>
+                                </footer>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+                    <div id="sidebar">
+                        <div class="inner">
+                            <!-- Menu -->
+                                <nav id="menu">
+                                    <header class="major">
+                                        <h2 style="color: #000000;">Menu</h2>
+                                    </header>
+                                    <ul>
+                                        <li><a href="index.html" style="color: #000000;">Homepage</a></li>
+                                        <li><a href="projects_index.html" style="color: #000000;">Projects</a></li>
+                                        <li><a href="achievements_index.html" style="color: #000000;">Achievements</a></li>
+                                        <li>
+                                            <span class="opener" style="color: #000000;">Competitions</span>
+                                            <ul>
+                                                <li><a href="notdeveloped.html" style="color: #000000;">Line Follower Robot</a></li>
+                                                <li><a href="notdeveloped.html" style="color: #000000;">Soccer Bot</a></li>
+                                                <li><a href="notdeveloped.html" style="color: #000000;">Project Presentation</a></li>
+                                                <li><a href="notdeveloped.html" style="color: #000000;">Poster Presentation</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="notdeveloped.html" style="color: #000000;">Fields of Interest</a></li>
+                                        <li><a href="notdeveloped.html" style="color: #000000;">Publications</a></li>
+                                        <li><a href="https://drive.google.com/file/d/17LY-CSfBv1PS7pn2vEMGtH5DsltEV3TL/view?usp=sharing" target="_blank" style="color: #000000;">Resume</a></li>
+                                    </ul>
+                                </nav>
+
+                            <!-- Section -->
+                                <section>
+                                    <header class="major">
+                                        <h2>Recent</h2>
+                                    </header>
+                                    <div class="mini-posts">
+                                        <article>
+                                            <a href="achievements_index.html" title ="Achievements: Dean's Award" class="image"><img src="images/Best Project.jpg" alt="" /></a>
+                                            <p><b>Awarded the "Deans Award" for the best Capstone Project</b></p>
+                                        </article>
+                                        <article>
+                                            <a href="projects_index.html" title ="Projects: Quadureped Robot" class="image"><img src="images/Quadruped Thumbnail.jpg" alt="" /></a>
+                                            <p><b>Multi-Functional Quadruped Robot with Advanced Locomotion, Remote Operability and Cognitive Capabilities</b></p>
+                                        </article>
+                                        <article>
+                                            <a href="projects_nightgaurd360.html" title ="Projects: Night-Guard 360 Sentinel" class="image"><img src="images/Night-Guard 360.jpg" alt="" /></a>
+                                            <p><b>Introducing The Night-Guard 360 Sentinel: Advance Autonomus Surveillance Robot</b></p>
+                                        </article>
+                                    </div>								
+                                </section>
+
+                            
+
+                            <!-- Section -->
+                                <section>
+                                    <header class="major">
+                                        <h2>Get in touch</h2>
+                                    </header>
+                                    <ul class="contact">
+                                        <li class="icon solid fa-envelope"><b>moeen14.aiub@gmail.com</b></li>
+                                        <li class="icon solid fa-phone"><b>01751777569</b></li>
+                                        <li class="icon solid fa-home"><b>Khilgaon, Dhaka - 1219</b></li>
+                                    </ul>
+                                </section>
+
+                            <!-- Footer -->
+                                <footer id="footer">
+                                    <p class="copyright" style = "color: #000000;">&copy; All rights reserved | Created by <b>Moeen Ul Islam</b></p>
+                                </footer>
+
+                        </div>
+                    </div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+            <script>
+                // JavaScript for achievement sidebar toggle
+                document.addEventListener('DOMContentLoaded', function () {
+                    const competitionSidebar = document.getElementById('competition-sidebar');
+                    const togglecompetitionBtn = document.querySelector('.toggle-competition-sidebar');
+            
+                    togglecompetitionBtn.addEventListener('click', function () {
+                        competitionSidebar.classList.toggle('show');
+                    });
+                });
+            </script>
+
+	</body>
+</html>

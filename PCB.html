@@ -16,7 +16,7 @@
 		gtag('config', 'G-XPZTR3LYF8');
 		</script>
 
-		<title>Achievements of Moeen Ul Islam</title>
+		<title>PCBs by Moeen Ul Islam</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -24,8 +24,6 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 		<style>
-
-            
             
             img {
                 max-width: 100%;
@@ -150,10 +148,12 @@
                                 <div class="project-container">
                                     <!-- Project List (1/3 of the screen) -->
                                     <div class="project-list" style="float: left; width: 33%;">
-                                        <h2>Achievements List</h2>
+                                        <h2>Printed Circuit Boards List</h2>
                                         <ul>
-                                            <li onclick="showProject(0)">Dean's Award for the Best Capstone Project<span class="project-date">05.10.23</span></li>
-                                            <li onclick="showProject(1)">Dean's List Honors for Academic Excellence<span class="project-date">01.03.23</span></li>
+                                            <li onclick="showProject(0)">CD4017 IC Based LED Toggle Light Circuit</li>
+                                            <li onclick="showProject(1)">ESP32 Based Self Balancing Mobile Controlled Robot</li>
+                                            <li onclick="showProject(2)">Line Follower Robot IR Sensor Array</li>
+                                            <li onclick="showProject(3)">NE555 Based PWM Motor Controller</li>
                                             <!-- Add more project items as needed -->
                                         </ul>
                                         
@@ -189,7 +189,7 @@
 									<div style="margin-top: 50px; text-align: left;">
 										<ul class="icons">
 											<li><a href="https://www.linkedin.com/in/moeen-ul-islam-973736285" target="_blank" class="fab fa-linkedin" title="LinkedIn" style="font-size: 25px; ;"></a></li>
-                                            <li><a href="https://www.researchgate.net/profile/Moeen-Ul-Islam" target="_blank" class="fab fa-researchgate" title="ResearchGate" style="font-size: 25px; "></a></li>
+											<li><a href="https://www.researchgate.net/profile/Moeen-Ul-Islam" target="_blank" class="fab fa-researchgate" title="ResearchGate" style="font-size: 25px; "></a></li>
                                             <li><a href="https://github.com/moeen14" target="_blank" class="fab fa-github" title="GitHub" style="font-size: 25px;"></a></li>
 											<li><a href="https://www.facebook.com/profile.php?id=100073217057451&mibextid=ZbWKwL" target="_blank" class="fab fa-facebook" title="Facebook" style="font-size: 25px;"></a></li>
 										</ul>
@@ -323,88 +323,109 @@
 			<script src="assets/js/main.js"></script>
 			<script>
                 // Define an array of project data
-                // Extract the query parameter from the URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const projectIndex = urlParams.get('project');
+                const projects = [
+                    {
+                        title: "CD4017 IC Based LED Toggle Light Circuit",
+                        description: "",
+                        images: [
+                            "images/Skillset/pcb/8 LED Controller/Image 01.jpg",
+                            "images/Skillset/pcb/8 LED Controller/Image 02.jpg",
+                            "images/Skillset/pcb/8 LED Controller/Image 03.jpg",
+                        ],                        
+                    },
+                    {
+                        title: "ESP32 Based Self Balancing Mobile Controlled Robot",
+                        description: "",
+                        images: [
+                            "images/Skillset/pcb/Self Balancing/Image 01.jpg",
+                            "images/Skillset/pcb/Self Balancing/Image 02.jpg",
+                            "images/Skillset/pcb/Self Balancing/Image 03.jpg",                            
+                            "images/Skillset/pcb/Self Balancing/Image 04.jpg",
+                            "images/Skillset/pcb/Self Balancing/Image 05.jpg",
+                        ],
+                        
+                        
+                    },
+                    {
+                        title: "Line Follower Robot IR Sensor Array",
+                        description: "",
+                        images: [
+                            "images/Skillset/pcb/LFR Sensor 01/Image 01.jpg",
+                            "images/Skillset/pcb/LFR Sensor 01/Image 02.jpg",
+                            "images/Skillset/pcb/LFR Sensor 01/Image 03.jpg",
+                        ],
+                        
+                        
+                    },
 
-            // Define an array of project data
-            const projects = [
-                {
-                    title: "Dean's Award for the Best Capstone Project (Summer 22-23)",
-                    description: "We are thrilled to have been awarded the 'Dean's Award' for our exceptional eight-month-long dedication to the project titled 'Multi-Functional Quadruped Robot with Advanced Locomotion, Remote Operability, and Cognitive Capabilities.' This journey was a labor of love, and we extend our heartfelt thanks to our esteemed faculty members and mentors, particularly our suppervisor, Mr. Chowdhury Akram Hossain, Associate Professor and Department Head of CoE, and Dr. Shameem Ahmad, our External Supervisor and Assistant Professor, who played crucial roles in guiding us to success. It's a moment of gratitude and celebration, and I am personally humbled and thankful for the incredible opportunity and the unyielding spirit that brought this vision to life.",
-                    images: [
-                        "images/Achievements/Dean's Award/Image 01.jpg",
-                        "images/Achievements/Dean's Award/Image 02.jpg",
-                        "images/Achievements/Dean's Award/Image 03.jpg",
-                        "images/Achievements/Dean's Award/Image 04.jpg",
-                    ],                        
-                },
-                {
-                    title: "Dean's List Honors for Academic Excellence",
-                    description: "I am delighted to have been consistently recognized on the 'Dean's List Honors' for academic excellence in multiple semesters, including the Fall semesters of 20-21, 21-22, 22-23, and the Spring semesters of 20-21 and 21-22. This achievement reflects not only my dedication and hard work but also the unwavering support of my dedicated faculty and the camaraderie of my classmates. It's a testament to the belief that when you put your heart and soul into your academic journey, the rewards are bound to follow. I am deeply thankful for this recognition and excited to continue this journey of excellence.",
-                    images: [
-                        "images/Achievements/Dean's List Honors/Image 01.jpg",
-                        "images/Achievements/Dean's List Honors/Image 02.jpg",
-                    ],
-                },
-                // Add more project data as needed
-            ];
-
-            let currentProjectIndex = 0;
-            let currentImageIndex = 0;
-        
-            function showProject(index) {
-                // Remove the "selected" class from all project list items
-                const projectListItems = document.querySelectorAll('.project-list li');
-                projectListItems.forEach(item => item.classList.remove('selected'));
-
-                // Add the "selected" class to the clicked project title
-                const selectedProjectTitle = projectListItems[index];
-                selectedProjectTitle.classList.add('selected');
-
-                currentProjectIndex = index;
-
-                // Reset currentImageIndex to 0 for the new project
-                currentImageIndex = 0;
-
-                updateProjectDetails(); // Update project details
-                updateImage(); // Automatically update the image
-            }
-        
-            function nextImage() {
-                currentImageIndex = (currentImageIndex + 1) % projects[currentProjectIndex].images.length;
-                updateImage();                    
-            }
-
-            function prevImage() {
-                currentImageIndex = (currentImageIndex - 1 + projects[currentProjectIndex].images.length) % projects[currentProjectIndex].images.length;
-                updateImage();
-                
-            }
-
-        
-            function updateProjectDetails() {
-                const projectTitle = document.getElementById("project-title");
-                const projectDescription = document.getElementById("project-description");
-
-                const currentProject = projects[currentProjectIndex];
-                projectTitle.textContent = currentProject.title;
-                projectDescription.textContent = currentProject.description;
-
-                // Set the initial image description
-                
-                updateImage();
-            }
-        
-            function updateImage() {
-                const projectImage = document.getElementById("image");
-                const currentProject = projects[currentProjectIndex];
-                projectImage.src = currentProject.images[currentImageIndex];
-            }
+                    {
+                        title: "NE555 Based PWM Motor Controller",
+                        description: "",
+                        images: [
+                            "images/Skillset/pcb/NE555 Motor Controller/Image 01.jpg",
+                            "images/Skillset/pcb/NE555 Motor Controller/Image 02.jpg",
+                            "images/Skillset/pcb/NE555 Motor Controller/Image 03.jpg",
+                        ],
+                        
+                        
+                    },
+                    
+                    // Add more project data as needed
+                ];
             
-            showProject(0);
+                let currentProjectIndex = 0;
+                let currentImageIndex = 0;
+            
+                function showProject(index) {
+                    // Remove the "selected" class from all project list items
+                    const projectListItems = document.querySelectorAll('.project-list li');
+                    projectListItems.forEach(item => item.classList.remove('selected'));
 
+                    // Add the "selected" class to the clicked project title
+                    const selectedProjectTitle = projectListItems[index];
+                    selectedProjectTitle.classList.add('selected');
+
+                    currentProjectIndex = index;
+
+                    // Reset currentImageIndex to 0 for the new project
+                    currentImageIndex = 0;
+
+                    updateProjectDetails(); // Update project details
+                    updateImage(); // Automatically update the image
+                }
+            
+                function nextImage() {
+                    currentImageIndex = (currentImageIndex + 1) % projects[currentProjectIndex].images.length;
+                    updateImage();                    
+                }
+
+                function prevImage() {
+                    currentImageIndex = (currentImageIndex - 1 + projects[currentProjectIndex].images.length) % projects[currentProjectIndex].images.length;
+                    updateImage();
+                    
+                }
+
+            
+                function updateProjectDetails() {
+                    const projectTitle = document.getElementById("project-title");
+                    const projectDescription = document.getElementById("project-description");
+
+                    const currentProject = projects[currentProjectIndex];
+                    projectTitle.textContent = currentProject.title;
+                    projectDescription.textContent = currentProject.description;
+
+                    // Set the initial image description
+                    
+                    updateImage();
+                }
+            
+                function updateImage() {
+                    const projectImage = document.getElementById("image");
+                    const currentProject = projects[currentProjectIndex];
+                    projectImage.src = currentProject.images[currentImageIndex];
+                }
                 
+                showProject(0);
             </script>
 
             <script>
