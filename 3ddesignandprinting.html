@@ -117,6 +117,91 @@
                 font-size: 14px; /* Set the font size for the date */
             }
 
+            #toggleList {
+                display: none;
+            }
+
+            .project-list {
+                display: block;
+            }
+
+            /* Your existing styles remain unchanged */
+
+            @media (min-width: 768px) {
+                .project-list {
+                    max-height: 600px; /* Adjust the height as needed */
+                    overflow-y: auto; /* Add vertical scroll bar if content exceeds max-height */
+                }
+            }
+
+            @media (max-width: 768px) {
+
+                #toggleList {
+                    display: block; /* Show the toggle button on mobile */
+                }
+
+                .project-list {
+                    display: none; /* Hide the project list initially on mobile */
+                }
+
+                .project-container {
+                    flex-direction: column;
+                }
+
+                #toggleList {
+                    display: block;
+                    background-color: #ffffff98;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    
+                }
+
+                .project-list {
+                    width: 100%;
+                    padding: 10px;
+                    display: none; /* Initially hidden */
+                }
+
+                .project-list h2 {
+                    font-size: 20px; /* Adjust font size for the heading in the list */
+                    margin-bottom: 10px; /* Add margin below the heading */
+                }
+
+                .project-list li {
+                    padding: 10px; /* Adjust padding for list items */
+                    font-size: 10px; /* Adjust font size for list items */
+                    margin-bottom: 5px; /* Add margin below list items */
+                    border-radius: 5px; /* Rounded corners for list items */
+                }
+
+                .project-details {
+                    width: 100%;
+                    padding: 10px;
+                }
+
+                .image-button {
+                    padding-left: 8px; /* Adjust padding for image buttons */
+                    padding-right: 8px;
+                }
+
+                #prevButton, #nextButton {
+                    position: static; /* Reset button position on mobile */
+                    margin: 5px 0; /* Add margin around buttons */
+                    display: inline-block; /* Display buttons inline */
+                }
+
+                #project-title {
+                    font-size: 14px; /* Adjust font size for project title */
+                    margin-top: 10px; /* Adjust margin for the title */
+                }
+
+                #project-description {
+                    font-size: 10px; /* Adjust font size for project description */
+                }
+
+
+            }
                                 
 		</style>
 		
@@ -137,6 +222,7 @@
 								<ul class="icons">
 									<li><a href="https://www.linkedin.com/in/moeen-ul-islam-973736285" target="_blank" class="fab fa-linkedin" title="LinkedIn" style="font-size: 20px;"></a></li>
 									<li><a href="https://www.researchgate.net/profile/Moeen-Ul-Islam" target="_blank" class="fab fa-researchgate" title="ResearchGate" style="font-size: 20px;"></a></li>
+                                    <li><a href="https://github.com/moeen14" target="_blank" class="fab fa-github" title="GitHub" style="font-size: 20px;"></a></li>
 									<li><a href="https://www.facebook.com/profile.php?id=100073217057451&mibextid=ZbWKwL" target="_blank" class="fab fa-facebook" title="Facebook" style="font-size: 20px;"></a></li>
 									<li><a href="https://drive.google.com/file/d/19fgpbnKcEASh4at2VJVVbWVW4k8BhxYo/view?usp=sharing" target="_blank" class="fas fa-file" title="Resume" style="font-size: 20px;"></a></li>
 								</ul>
@@ -145,8 +231,11 @@
 							<!-- Content -->
                             <section>
                                 <div class="project-container">
-                                    <!-- Project List (1/3 of the screen) -->
-                                    <div class="project-list" style="float: left; width: 33%;">
+                                    <!-- Toggle Button for Project List (Visible only on mobile) -->
+                                    <button id="toggleList" onclick="toggleProjectList()">View More</button>
+                                    
+                                    <!-- Project List (Initially Hidden on Mobile) -->
+                                    <div class="project-list" id="projectList">
                                         <h2>3D Design and Prints</h2>
                                         <ul>
                                             <li onclick="showProject(0)">Cycloidal Drive</li>
@@ -158,9 +247,9 @@
                                         
                                     </div>
                                     <!-- Project Details (2/3 of the screen) -->
-                                    <div class="project-details" style="float: left; width: 66%;">
+                                    <div class="project-details">
                                         <div id="image-container" style="position: relative;">
-                                            <img id="image" src="images/Achievements/Dean's Award/Image 01.jpg" alt="Image" width="600" height="400" />
+                                            <img id="image" alt="Image" width="600" height="400" />
                                             <div>
                                                 <button id="prevButton" class="image-button" onclick="prevImage()">   Prev   </button>
                                                 <button id="nextButton" class="image-button" onclick="nextImage()">   Next   </button>
@@ -189,6 +278,7 @@
 										<ul class="icons">
 											<li><a href="https://www.linkedin.com/in/moeen-ul-islam-973736285" target="_blank" class="fab fa-linkedin" title="LinkedIn" style="font-size: 25px; ;"></a></li>
 											<li><a href="https://www.researchgate.net/profile/Moeen-Ul-Islam" target="_blank" class="fab fa-researchgate" title="ResearchGate" style="font-size: 25px; "></a></li>
+                                            <li><a href="https://github.com/moeen14" target="_blank" class="fab fa-github" title="GitHub" style="font-size: 25px;"></a></li>
 											<li><a href="https://www.facebook.com/profile.php?id=100073217057451&mibextid=ZbWKwL" target="_blank" class="fab fa-facebook" title="Facebook" style="font-size: 25px;"></a></li>
 										</ul>
 										<p style="font-size: 14px; text-align: left;"><b>Connect with me on social media</b></p>
@@ -227,7 +317,7 @@
 
 							<footer id="footer" style="background-color: #333; padding: 10px;">
 								<p class="copyright" style="color: #fff; text-align: center; margin: 0;">
-									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 12 August, 2024
+									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 26 August, 2024
 								</p>
 							</footer>
 						</div>
@@ -324,7 +414,7 @@
                 const projects = [
                     {
                         title: "Cycloidal Drive",
-                        description: "",
+                        description: "I created a 3D printed Cycloidal Drive using PLA on an Ender 3 V2. The entire process, from design to completion, took four months, with significant research involved. I used SolidWorks for 3D modeling, and due to the complexity of the design, I had to go through multiple iterations and design modifications to perfect it. The result is a finely tuned drive, showcasing both my 3D modeling skills and hands-on expertise in 3D printing.",
                         images: [
                             "images/Skillset/3d Design and Printing/Cycloidal Drive/Image 01.jpg",
                             "images/Skillset/3d Design and Printing/Cycloidal Drive/Image 02.jpg",
@@ -334,7 +424,7 @@
                     },
                     {
                         title: "Raspbarry Pi Based Remote Car Frame",
-                        description: "",
+                        description: "I designed and built a Raspberry Pi-based remote car frame with a focus on 3D modeling and printing. The frame features a front steering system with a dedicated servo mounting, allowing precise control. To increase torque, I integrated a belt gear system, which required careful design and multiple iterations. The upper part of the car is constructed from PVC board, while the bottom holds all the Lithium-ion 18650 batteries securely. The frame also includes motor mounts and multiple bearings for smooth operation. The 3D design, particularly for the front steering and belt gear system, was a critical aspect of the project, ensuring both functionality and durability.",
                         images: [
                             "images/Skillset/3d Design and Printing/Car Frame/Image 01.jpg",
                             "images/Skillset/3d Design and Printing/Car Frame/Image 02.jpg",
@@ -345,7 +435,7 @@
                     },
                     {
                         title: "Double Bevel Gears",
-                        description: "",
+                        description: "I designed Double Bevel Gears using Autodesk 360, going through multiple iterations to perfect the design. The gears achieved a 25:1 gear ratio, driven by a small DC motor, and were used in a machine designed to roll string onto a roller. This project was a significant learning experience in 3D modeling, especially in understanding and designing gears.",
                         images: [
                             "images/Skillset/3d Design and Printing/Double Bevel Gear/Image 01.jpg",
                             "images/Skillset/3d Design and Printing/Double Bevel Gear/Image 02.jpg",
@@ -355,7 +445,7 @@
                     },
                     {
                         title: "Wheel Rim for Different Gear Motors",
-                        description: "",
+                        description: "These custom-designed wheels were tailored for soccer bots and line follower robots. A significant challenge I faced during this project was determining the optimal material density to ensure the wheels provided the right balance of durability and performance. Through extensive testing and adjustments, I refined the design to suit the specific requirements of these robots.",
                         images: [
                             "images/Skillset/3d Design and Printing/Wheel Rim/Image 01.jpg",
                             "images/Skillset/3d Design and Printing/Wheel Rim/Image 02.jpg",
@@ -390,6 +480,10 @@
 
                     updateProjectDetails(); // Update project details
                     updateImage(); // Automatically update the image
+
+                    if (window.innerWidth <= 768) {
+                        toggleProjectList();
+                    }
                 }
             
                 function nextImage() {
@@ -410,10 +504,9 @@
 
                     const currentProject = projects[currentProjectIndex];
                     projectTitle.textContent = currentProject.title;
-                    projectDescription.textContent = currentProject.description;
+                    projectDescription.innerHTML = currentProject.description; // Use innerHTML to render HTML content
 
                     // Set the initial image description
-                    
                     updateImage();
                 }
             
@@ -424,6 +517,24 @@
                 }
                 
                 showProject(0);
+
+                function toggleProjectList() {
+                    var projectList = document.getElementById('projectList');
+                    if (window.innerWidth <= 768) { 
+                        if (projectList.style.display === 'none' || projectList.style.display === '') {
+                            projectList.style.display = 'block';
+                        } else {
+                            projectList.style.display = 'none';
+                        }
+                    }
+                }
+
+                window.onload = function() {
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('projectList').style.display = 'none';
+                    }
+                };
+
             </script>
 
             <script>

@@ -117,6 +117,91 @@
                 font-size: 14px; /* Set the font size for the date */
             }
 
+            #toggleList {
+                display: none;
+            }
+
+            .project-list {
+                display: block;
+            }
+
+            /* Your existing styles remain unchanged */
+
+            @media (min-width: 768px) {
+                .project-list {
+                    max-height: 600px; /* Adjust the height as needed */
+                    overflow-y: auto; /* Add vertical scroll bar if content exceeds max-height */
+                }
+            }
+
+            @media (max-width: 768px) {
+
+                #toggleList {
+                    display: block; /* Show the toggle button on mobile */
+                }
+
+                .project-list {
+                    display: none; /* Hide the project list initially on mobile */
+                }
+
+                .project-container {
+                    flex-direction: column;
+                }
+
+                #toggleList {
+                    display: block;
+                    background-color: #ffffff98;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    
+                }
+
+                .project-list {
+                    width: 100%;
+                    padding: 10px;
+                    display: none; /* Initially hidden */
+                }
+
+                .project-list h2 {
+                    font-size: 20px; /* Adjust font size for the heading in the list */
+                    margin-bottom: 10px; /* Add margin below the heading */
+                }
+
+                .project-list li {
+                    padding: 10px; /* Adjust padding for list items */
+                    font-size: 10px; /* Adjust font size for list items */
+                    margin-bottom: 5px; /* Add margin below list items */
+                    border-radius: 5px; /* Rounded corners for list items */
+                }
+
+                .project-details {
+                    width: 100%;
+                    padding: 10px;
+                }
+
+                .image-button {
+                    padding-left: 8px; /* Adjust padding for image buttons */
+                    padding-right: 8px;
+                }
+
+                #prevButton, #nextButton {
+                    position: static; /* Reset button position on mobile */
+                    margin: 5px 0; /* Add margin around buttons */
+                    display: inline-block; /* Display buttons inline */
+                }
+
+                #project-title {
+                    font-size: 14px; /* Adjust font size for project title */
+                    margin-top: 10px; /* Adjust margin for the title */
+                }
+
+                #project-description {
+                    font-size: 10px; /* Adjust font size for project description */
+                }
+
+
+            }
                                 
 		</style>
 		
@@ -146,22 +231,28 @@
 							<!-- Content -->
                             <section>
                                 <div class="project-container">
-                                    <!-- Project List (1/3 of the screen) -->
-                                    <div class="project-list" style="float: left; width: 33%;">
+                                    <!-- Toggle Button for Project List (Visible only on mobile) -->
+                                    <button id="toggleList" onclick="toggleProjectList()">View More</button>
+                                    
+                                    <!-- Project List (Initially Hidden on Mobile) -->
+                                    <div class="project-list" id="projectList">
                                         <h2>Printed Circuit Boards List</h2>
                                         <ul>
-                                            <li onclick="showProject(0)">CD4017 IC Based LED Toggle Light Circuit</li>
-                                            <li onclick="showProject(1)">ESP32 Based Self Balancing Mobile Controlled Robot</li>
-                                            <li onclick="showProject(2)">Line Follower Robot IR Sensor Array</li>
-                                            <li onclick="showProject(3)">NE555 Based PWM Motor Controller</li>
+                                            <li onclick="showProject(0)">Line Follower Robot Main Body with SMD-LED Indicator</li>
+                                            <li onclick="showProject(1)">Quadruped Robot Controller Circuit - Arduino Mega Pro Mini, Motor Driver, Encoder Feedback</li>
+                                            <li onclick="showProject(2)">ESP32 based IoT Incubator using on AC Dimming Circuit</li>
+                                            <li onclick="showProject(3)">CD4017 IC Based LED Toggle Light Circuit</li>
+                                            <li onclick="showProject(4)">ESP32 Based Self Balancing Mobile Controlled Robot</li>
+                                            <li onclick="showProject(5)">Line Follower Robot IR Sensor Array</li>
+                                            <li onclick="showProject(6)">NE555 Based PWM Motor Controller</li>
                                             <!-- Add more project items as needed -->
                                         </ul>
                                         
                                     </div>
                                     <!-- Project Details (2/3 of the screen) -->
-                                    <div class="project-details" style="float: left; width: 66%;">
+                                    <div class="project-details">
                                         <div id="image-container" style="position: relative;">
-                                            <img id="image" src="images/Achievements/Dean's Award/Image 01.jpg" alt="Image" width="600" height="400" />
+                                            <img id="image" alt="Image" width="600" height="400" />
                                             <div>
                                                 <button id="prevButton" class="image-button" onclick="prevImage()">   Prev   </button>
                                                 <button id="nextButton" class="image-button" onclick="nextImage()">   Next   </button>
@@ -229,7 +320,7 @@
 
 							<footer id="footer" style="background-color: #333; padding: 10px;">
 								<p class="copyright" style="color: #fff; text-align: center; margin: 0;">
-									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 12 August, 2024
+									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 26 August, 2024
 								</p>
 							</footer>
 						</div>
@@ -324,9 +415,47 @@
 			<script>
                 // Define an array of project data
                 const projects = [
+
+                    {
+                        title: "Line Follower Robot Main Body with SMD-LED Indicator",
+                        description: "This PCB is designed for a line follower robot, incorporating an MX1616 H-bridge motor driver for precise control of the motors. It features an Arduino Mega Pro Mini for processing and control, and includes multiple regulators and capacitors to ensure stable power supply. SMD components, including LEDs, provide real-time visual feedback for the robot’s navigation and path detection",
+                        images: [
+                            "images/Skillset/PCB/Line Follower Robot With Light Indicator/Image 01.jpg",
+                            "images/Skillset/PCB/Line Follower Robot With Light Indicator/Image 02.jpg",
+                            "images/Skillset/PCB/Line Follower Robot With Light Indicator/Image 03.jpg",
+                            "images/Skillset/PCB/Line Follower Robot With Light Indicator/Image 04.jpg",
+                        ],
+                        
+                        
+                    },
+                    {
+                        title: "Quadruped Robot Controller Circuit - Arduino Mega Pro Mini, Motor Driver, Encoder Feedback",
+                        description: "This PCB is designed for controlling a quadruped robot. It features 12 TMC2208 V3 stepper motor drivers for precise motor control and 12 AS5600 magnetic encoder connection ports for accurate feedback. The Arduino Mega Pro Mini serves as the central controller, while various voltage regulators ensure stable power distribution. Additionally, a fuse is included for protection, safeguarding the circuit against potential electrical faults.",
+                        images: [
+                            "images/Skillset/PCB/Quadruped Robot Controller Circuit - Arduino Mega Pro Mini, Motor Driver, Encoder Feedback/Image 01.jpg",
+                            "images/Skillset/PCB/Quadruped Robot Controller Circuit - Arduino Mega Pro Mini, Motor Driver, Encoder Feedback/Image 02.jpg",
+                            "images/Skillset/PCB/Quadruped Robot Controller Circuit - Arduino Mega Pro Mini, Motor Driver, Encoder Feedback/Image 03.jpg",
+                        ],
+                        
+                        
+                    },
+
+                    {
+                        title: "ESP32 based IoT Incubator using on AC Dimming Circuit",
+                        description: "The PCB for the IoT-based incubator is designed to facilitate efficient control of the AC dimmer circuit. It features key components including the MOC3021 and MCT2e optocouplers, which enable the low-voltage ESP32 to manage high-voltage AC signals safely. The MCT2e optocoupler is integrated to synchronize the ESP32’s interrupt with the 220V AC zero-crossing, ensuring accurate timing for the PWM signal used in dimming the AC bulbs. Additionally, the PCB includes necessary connectors and protection elements to interface with the ESP32 and handle the high-voltage components, ensuring reliable operation and safety in the control system.",
+                        images: [
+                            "images/Skillset/PCB/IoT Incubator/Image 01.jpg",
+                            "images/Skillset/PCB/IoT Incubator/Image 02.jpg",
+                            "images/Skillset/PCB/IoT Incubator/Image 03.jpg",
+                            "images/Skillset/PCB/IoT Incubator/Image 04.jpg",
+                        ],
+                        
+                        
+                    },
+                    
                     {
                         title: "CD4017 IC Based LED Toggle Light Circuit",
-                        description: "",
+                        description: "This PCB design is for a CD4017 IC-based LED toggle light circuit. It features ten MOSFETs to handle the high current required for driving multiple high-power LEDs. The circuit utilizes a 555 timer IC to generate the pulse signals necessary for controlling the LED toggling. This setup allows for effective management of the LEDs' brightness and switching, making it suitable for dynamic lighting applications.",
                         images: [
                             "images/Skillset/PCB/8 LED Controller/Image 01.jpg",
                             "images/Skillset/PCB/8 LED Controller/Image 02.jpg",
@@ -335,7 +464,7 @@
                     },
                     {
                         title: "ESP32 Based Self Balancing Mobile Controlled Robot",
-                        description: "",
+                        description: "This PCB design is for an ESP32-based self-balancing robot that can be controlled via mobile devices. It incorporates an MPU5060 sensor for balancing control, and two A4988 drivers to control the NEMA 17 stepper motors responsible for movement. The board includes various regulators to ensure stable operation of the components. Additionally, it features a dedicated port for connecting a servo motor, which assists in the robot's balancing mechanism. This design utilizes a double-sided PCB to accommodate the complexity of the circuit and ensure reliable performance.",
                         images: [
                             "images/Skillset/PCB/Self Balancing/Image 01.jpg",
                             "images/Skillset/PCB/Self Balancing/Image 02.jpg",
@@ -348,7 +477,7 @@
                     },
                     {
                         title: "Line Follower Robot IR Sensor Array",
-                        description: "",
+                        description: "This PCB is designed for a line follower robot and features an array of TCRT5000 IR sensors for precise line detection. It utilizes through-hole components and is implemented on a single-sided PCB, providing a straightforward and effective solution for detecting the robot's path. The design ensures reliable performance and ease of integration with the robot's main control system.",
                         images: [
                             "images/Skillset/PCB/LFR Sensor 01/Image 01.jpg",
                             "images/Skillset/PCB/LFR Sensor 01/Image 02.jpg",
@@ -360,7 +489,7 @@
 
                     {
                         title: "NE555 Based PWM Motor Controller",
-                        description: "",
+                        description: "This PCB design is for a NE555-based PWM motor controller. It utilizes a single copper-clad board to implement the circuit, which includes the NE555 timer IC for generating pulse-width modulation signals. The design is straightforward, focusing on controlling motor speed through PWM. The use of a single-sided board keeps the design compact and cost-effective while maintaining functionality for various motor control applications.",
                         images: [
                             "images/Skillset/PCB/NE555 Motor Controller/Image 01.jpg",
                             "images/Skillset/PCB/NE555 Motor Controller/Image 02.jpg",
@@ -392,6 +521,10 @@
 
                     updateProjectDetails(); // Update project details
                     updateImage(); // Automatically update the image
+
+                    if (window.innerWidth <= 768) {
+                        toggleProjectList();
+                    }
                 }
             
                 function nextImage() {
@@ -412,10 +545,9 @@
 
                     const currentProject = projects[currentProjectIndex];
                     projectTitle.textContent = currentProject.title;
-                    projectDescription.textContent = currentProject.description;
+                    projectDescription.innerHTML = currentProject.description; // Use innerHTML to render HTML content
 
                     // Set the initial image description
-                    
                     updateImage();
                 }
             
@@ -426,6 +558,24 @@
                 }
                 
                 showProject(0);
+
+                function toggleProjectList() {
+                    var projectList = document.getElementById('projectList');
+                    if (window.innerWidth <= 768) { 
+                        if (projectList.style.display === 'none' || projectList.style.display === '') {
+                            projectList.style.display = 'block';
+                        } else {
+                            projectList.style.display = 'none';
+                        }
+                    }
+                }
+
+                window.onload = function() {
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('projectList').style.display = 'none';
+                    }
+                };
+
             </script>
 
             <script>

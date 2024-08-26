@@ -117,6 +117,91 @@
                 font-size: 14px; /* Set the font size for the date */
             }
 
+            #toggleList {
+                display: none;
+            }
+
+            .project-list {
+                display: block;
+            }
+
+            /* Your existing styles remain unchanged */
+
+            @media (min-width: 768px) {
+                .project-list {
+                    max-height: 600px; /* Adjust the height as needed */
+                    overflow-y: auto; /* Add vertical scroll bar if content exceeds max-height */
+                }
+            }
+
+            @media (max-width: 768px) {
+
+                #toggleList {
+                    display: block; /* Show the toggle button on mobile */
+                }
+
+                .project-list {
+                    display: none; /* Hide the project list initially on mobile */
+                }
+
+                .project-container {
+                    flex-direction: column;
+                }
+
+                #toggleList {
+                    display: block;
+                    background-color: #ffffff98;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    
+                }
+
+                .project-list {
+                    width: 100%;
+                    padding: 10px;
+                    display: none; /* Initially hidden */
+                }
+
+                .project-list h2 {
+                    font-size: 20px; /* Adjust font size for the heading in the list */
+                    margin-bottom: 10px; /* Add margin below the heading */
+                }
+
+                .project-list li {
+                    padding: 10px; /* Adjust padding for list items */
+                    font-size: 10px; /* Adjust font size for list items */
+                    margin-bottom: 5px; /* Add margin below list items */
+                    border-radius: 5px; /* Rounded corners for list items */
+                }
+
+                .project-details {
+                    width: 100%;
+                    padding: 10px;
+                }
+
+                .image-button {
+                    padding-left: 8px; /* Adjust padding for image buttons */
+                    padding-right: 8px;
+                }
+
+                #prevButton, #nextButton {
+                    position: static; /* Reset button position on mobile */
+                    margin: 5px 0; /* Add margin around buttons */
+                    display: inline-block; /* Display buttons inline */
+                }
+
+                #project-title {
+                    font-size: 14px; /* Adjust font size for project title */
+                    margin-top: 10px; /* Adjust margin for the title */
+                }
+
+                #project-description {
+                    font-size: 10px; /* Adjust font size for project description */
+                }
+
+
+            }
                                 
 		</style>
 		
@@ -146,21 +231,34 @@
 							<!-- Content -->
                             <section>
                                 <div class="project-container">
-                                    <!-- Project List (1/3 of the screen) -->
-                                    <div class="project-list" style="float: left; width: 33%;">
+                                    <!-- Toggle Button for Project List (Visible only on mobile) -->
+                                    <button id="toggleList" onclick="toggleProjectList()">View More</button>
+                                    
+                                    <!-- Project List (Initially Hidden on Mobile) -->
+                                    <div class="project-list" id="projectList">
                                         <h2>Printed Circuit Boards List</h2>
                                         <ul>
                                             <li onclick="showProject(0)">Multi-Functional Quadruped Robot with Advance Locomotion, Remote Operability and Cognitive Capabilities</li>
                                             <li onclick="showProject(1)">Introducing The Night-Guard 360 Sentinel: Advanced Autonomous Surveillance Robot</li>
                                             <li onclick="showProject(2)">Development of a 3D printed Stepper Motor Based Cycloidal Drive</li>
-                                            <!-- Add more project items as needed -->
+                                            <li onclick="showProject(3)">3D Printed 3 DOF Single Leg with Cycoidal Drive for Quadruped Robot</li>
+                                            <li onclick="showProject(4)">ESP32 Based AC Bulb Dimmer with Temperature and Humiditu Monitoring for IoT Incubator</li>
+                                            <li onclick="showProject(5)">TOF10120 Based 360 Degree LIDAR</li>
+                                            <li onclick="showProject(6)">Raspberry Pi Based RC Car With 3D Printed Frame</li>
+                                            <li onclick="showProject(7)">ESP32 Based 3D Printed Self Balancing Robot</li>
+                                            <li onclick="showProject(8)">Arduino and DHT11 Based Temperature and Humidity Monitoring</li>
+                                            <li onclick="showProject(9)">555 Timer and CD4026 Decade Counter Based Traffic Light</li>
+                                            <li onclick="showProject(10)">555 Timer Based RGB LED Controller</li>
+                                            <li onclick="showProject(11)">Arduino And WS2812B Based Music Reactive LED Tower</li>
+                                            <li onclick="showProject(12)">DIY CD4026 Decade Counter Based Flower Book</li>
+
                                         </ul>
                                         
                                     </div>
                                     <!-- Project Details (2/3 of the screen) -->
-                                    <div class="project-details" style="float: left; width: 66%;">
+                                    <div class="project-details">
                                         <div id="image-container" style="position: relative;">
-                                            <img id="image" src="images/Achievements/Dean's Award/Image 01.jpg" alt="Image" width="600" height="400" />
+                                            <img id="image"  alt="Image" width="600" height="400" />
                                             <div>
                                                 <button id="prevButton" class="image-button" onclick="prevImage()">   Prev   </button>
                                                 <button id="nextButton" class="image-button" onclick="nextImage()">   Next   </button>
@@ -228,7 +326,7 @@
 
 							<footer id="footer" style="background-color: #333; padding: 10px;">
 								<p class="copyright" style="color: #fff; text-align: center; margin: 0;">
-									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 12 August, 2024
+									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 26 August, 2024
 								</p>
 							</footer>
 						</div>
@@ -348,19 +446,19 @@
                     },
                     {
                         title: "Introducing The Night-Guard 360 Sentinel: Advanced Autonomous Surveillance Robot",
-                        description: "This project focuses on the integration of Surveillance Technology and Machine Learning into a compact robotic system with two primary applications. Firstly, it serves as an autonomous search and rescue robot capable of independently navigating an area, detecting individuals using object recognition, and sending instant email alerts with the person's image and robot's location. Secondly, it functions as a home security robot, patrolling and identifying intruders within a household, sounding alarms, and sending email notifications. To ensure protection, it incorporates an electrical taser defense mechanism. The robot features both regular and night vision cameras, utilizes Python, OpenCV, and TensorFlow for its implementation, and can be controlled through a user-friendly application via Wi-Fi connectivity. With potential applications in military and security contexts, it offers a versatile solution for monitoring individuals or critical areas, enhancing safety, and security measures while minimizing human risk.",
+                        description: `This project focuses on the integration of surveillance technology and machine learning into a compact robotic system with two primary applications. Firstly, it serves as an autonomous search and rescue robot capable of independently navigating an area, detecting individuals using object recognition, and sending instant email alerts with the person's image and robot's location. Secondly, it functions as a home security robot, patrolling and identifying intruders within a household, sounding alarms, and sending email notifications. To ensure protection, it incorporates an electrical taser defense mechanism. The robot features both regular and night vision cameras, utilizes Python, OpenCV, and TensorFlow for its implementation, and can be controlled through a user-friendly application via Wi-Fi connectivity. With potential applications in military and security contexts, it offers a versatile solution for monitoring individuals or critical areas, enhancing safety and security measures while minimizing human risk. I have published an IEEE Conference Paper on this. You can access the paper <a href="https://ieeexplore.ieee.org/document/10441443" target="_blank">here</a>.`,
                         images: [
-                            "images/Projects/Nightgaurd360/Image 01.jpg",
-                            "images/Projects/Nightgaurd360/Image 02.jpg",
-                            "images/Projects/Nightgaurd360/Image 03.jpg",
-                            "images/Projects/Nightgaurd360/Image 04.jpg",
-                            "images/Projects/Nightgaurd360/Image 05.jpg",
-                            "images/Projects/Nightgaurd360/Image 06.jpg",
-                            "images/Projects/Nightgaurd360/Image 07.jpg",
-                            "images/Projects/Nightgaurd360/Image 08.jpg",
-                            "images/Projects/Nightgaurd360/Image 09.jpg",
-                            "images/Projects/Nightgaurd360/Image 10.jpg",
-                            "images/Projects/Nightgaurd360/Image 11.jpg",
+                            "images/Projects/Nightguard360/Image 01.jpg",
+                            "images/Projects/Nightguard360/Image 02.jpg",
+                            "images/Projects/Nightguard360/Image 03.jpg",
+                            "images/Projects/Nightguard360/Image 04.jpg",
+                            "images/Projects/Nightguard360/Image 05.jpg",
+                            "images/Projects/Nightguard360/Image 06.jpg",
+                            "images/Projects/Nightguard360/Image 07.jpg",
+                            "images/Projects/Nightguard360/Image 08.jpg",
+                            "images/Projects/Nightguard360/Image 09.jpg",
+                            "images/Projects/Nightguard360/Image 10.jpg",
+                            "images/Projects/Nightguard360/Image 11.jpg",
                         ],
                         
                         
@@ -377,6 +475,106 @@
                             "images/Projects/Cycloidal Drive/Image 06.jpg",
                         ],
                         
+                        
+                    },
+                    {
+                        title: "3D Printed 3 DOF Single Leg with Cycoidal Drive for Quadruped Robot",
+                        description: `I designed and developed a 20:1 3D-printable cycloidal drive after four months of R&D, keeping the entire quadruped robot in mind. Considering the robot's total weight, the leg is 240mm long with 3 degrees of freedom. To test the leg's motion range and verify the AS5600 encoder data, I created an interactive circuit using an Arduino Uno and TMC2208 V3, which can be controlled with three potentiometers. You can view video demonstrations of the 3D model and the hardware at the following links:
+                            <a href="https://drive.google.com/file/d/1BJnLjx0s-5NTK0EVoG9KTXUmldKJUGlG/view?usp=sharing" target="_blank">3D Model</a> -
+                            <a href="https://drive.google.com/file/d/1QHymPTUJRhApCTIFJeJQrNclmtvag5T_/view?usp=sharing" target="_blank">Hardware</a>`,
+                        images: [
+                            "images/Projects/3 DOF Single Leg for Quadruped Robot/Image 01.jpg",
+                            "images/Projects/3 DOF Single Leg for Quadruped Robot/Image 02.jpg",
+                        ],
+                        
+                    },
+                    {
+                        title: "ESP32 Based AC Bulb Dimmer with Temperature and Humiditu Monitoring for IoT Incubator",
+                        description: `For an IoT-based incubator, instead of using typical relays, I opted to use an AC dimmer circuit to assess the system's efficiency. I used MOC3021 and MCT2e optocouplers to enable the low-voltage ESP32 to control the high-voltage AC signal. The MCT2e triggers the interrupt of the ESP32, aligning the timing of the ESP32 signal with the 220V AC zero-crossing. The ESP32 provides the PWM signal for dimming the AC bulbs and sends data to a Google spreadsheet. The AC Dimming demonstration can be found <a href="https://drive.google.com/file/d/18ya7ct3_kd8gofxY7lUp2aoMWLeRMV6W/view?usp=drive_link" target="_blank">here</a>.`,
+                        images: [
+                            "images/Projects/ESP32 Based AC Bulb Dimmer For IoT Incubator/Image 01.jpg",
+                            "images/Projects/ESP32 Based AC Bulb Dimmer For IoT Incubator/Image 02.jpg",
+                            "images/Projects/ESP32 Based AC Bulb Dimmer For IoT Incubator/Image 03.jpg",
+                            "images/Projects/ESP32 Based AC Bulb Dimmer For IoT Incubator/Image 04.jpg",
+                            "images/Projects/ESP32 Based AC Bulb Dimmer For IoT Incubator/Image 05.jpg",
+                        ],
+                        
+                    },
+                    {
+                        title: "TOF10120 Based 360 Degree LIDAR",
+                        description: `To verify the effectiveness of a DIY 360-degree LiDAR created by converting a TOF10120 linear distance measuring sensor into a 360-degree LiDAR using a mirror, hall sensor, and stepper motor with a clever mechanical design, I designed and implemented the entire system in just two days. By combining the data from the TOF10120, the initial position from the hall sensor, and precise positioning from the stepper motor, I was able to produce a 2D map using the Matplotlib library. While the mechanism works and has significant potential for improvement, the range was too low, and accuracy decreased due to the use of the mirror. A better approach would involve eliminating the mirror and instead using a rotary connector along with a magnetic encoder for positioning. Visit the video demonstration: <a href="https://drive.google.com/file/d/1shL6cO25CpYGh7OXQmnT0107Mgfhg6v0/view?usp=sharing" target="_blank">Hardware</a> and <a href="https://drive.google.com/file/d/1lH-t2FpyPddtjXQNueO4hMNogRqi5htZ/view?usp=sharing" target="_blank">3D Model</a>.`,
+                        images: [
+                            "images/Projects/Linear to 360 Degree Lidar Prototype/Image 01.jpg",
+                            "images/Projects/Linear to 360 Degree Lidar Prototype/Image 02.jpg",
+                            "images/Projects/Linear to 360 Degree Lidar Prototype/Image 03.jpg",
+                        ],
+                        
+                    },
+                    {
+                        title: "Raspberry Pi Based RC Car With 3D Printed Frame",
+                        description: "I built a Raspberry Pi-based RC car, creating an interconnected system that includes serial communication between the Raspberry Pi and an Arduino Uno, as well as between a radio receiver and the Arduino Uno. The robot can be controlled in two ways: 1) Radio Control, where the Arduino Uno receives input from the receiver (Rx) and manages the servo and motors; and 2) SSH Control, where data is sent to the Raspberry Pi via SSH protocol, which then forwards the commands to the Arduino Uno. The frame, drivetrain, and front steering mechanism were all 3D designed and printed.",
+                        images: [
+                            "images/Projects/Raspberry Pi Based RC Car With 3D Printed Frame/Image 01.jpg",
+                            "images/Projects/Raspberry Pi Based RC Car With 3D Printed Frame/Image 02.jpg",
+                            "images/Projects/Raspberry Pi Based RC Car With 3D Printed Frame/Image 03.jpg",
+                            "images/Projects/Raspberry Pi Based RC Car With 3D Printed Frame/Image 04.jpg",
+                        ],
+                        
+                    },
+                    {
+                        title: "ESP32 Based 3D Printed Self Balancing Robot",
+                        description: `With the ESP32 at the center of the robot, I created a Bluetooth-controlled self-balancing robot. The MPU6050 was used for balancing the robot, an A4988 stepper motor driver along with NEMA17 stepper motors for movement, and a servo for initially standing up. I have also designed and fabricated the PCB for this project. The 3D model of the robot was taken from Thingiverse. I didn't take many pictures, hence here is a <a href="https://drive.google.com/file/d/1ey2rAk05Fpqo24quwyloMx7JNSx_j-TV/view?usp=sharing" target="_blank">video demonstration</a> of the project.`,
+                        images: [
+                            "images/Projects/ESP32 Based Self Balancing Robot/Image 01.jpg",
+                            "images/Projects/ESP32 Based Self Balancing Robot/Image 02.jpg",
+                            "images/Projects/ESP32 Based Self Balancing Robot/Image 03.jpg",
+                            "images/Projects/ESP32 Based Self Balancing Robot/Image 04.jpg",
+                        ],
+                        
+                    },
+                    {
+                        title: "Arduino and DHT11 Based Temperature and Humidity Monitoring",
+                        description: "The simple project consists of an I2C O-LED display accompanied by an Arduino Nano, DHT11 and an LDR. The DHT11 is responsible for measuring the Temperature and Humidity. The Light Dependent Resistor is used to determine the presence of light as the circuit usecase required this. Finally, the O-LED display is displaying the Humidity and Temperature. For a quick prototype, I used a vero-board to implement the circuit.",
+                        images: [
+                            "images/Projects/Arduino and DHT11 Based Temperature and Humidity Monitoring/Image 01.jpg",
+                        ],
+                        
+                    },
+                    {
+                        title: "555 Timer and CD4026 Decade Counter Based Traffic Light",
+                        description: "This project involves creating a traffic light system using a 555 timer and a CD4026 decade counter. The 555 timer is configured as an astable multivibrator to generate a timing pulse. The CD4026 decade counter is used to create a sequence for the traffic light in conjunction with a complex circuit that includes diodes and resistors, cycling through red, yellow, and green lights in a timed manner. This setup allows for a basic simulation of traffic light operation. The circuit was built on a Vero-Board for quick implementation.",
+                        images: [
+                            "images/Projects/555 Timer and CD4026 Decade Counter Based Traffic Light/Image 01.jpg",
+                            "images/Projects/555 Timer and CD4026 Decade Counter Based Traffic Light/Image 02.jpg",
+                            "images/Projects/555 Timer and CD4026 Decade Counter Based Traffic Light/Image 03.jpg",
+                        ],
+                        
+                    },
+                    {
+                        title: "555 Timer Based RGB LED Controller",
+                        description: "For an RGB soft light for personal use, I used a simple 555 timer IC-based LED controller. The 555 timer ICs operate in astable multivibrator mode, and a potentiometer is used to control the duty cycle of the 555 output. With the help of a Z44N MOSFET, high-current LEDs are driven. Three separate circuits control the three different colors: red, green, and blue. By adjusting the brightness of each color separately, a wide range of colors can be created.",
+                        images: [
+                            "images/Projects/555 Timer Based RGB LED Controller/Image 01.jpg",
+                            "images/Projects/555 Timer Based RGB LED Controller/Image 02.jpg",
+                        ],
+                        
+                    },
+                    {
+                        title: "Arduino And WS2812B Based Music Reactive LED Tower",
+                        description: "For my very first microcontroller project, I built a music-reactive LED tower using 5mm acrylic glass. The project employed an Arduino and WS2812B LED strips to create dynamic lighting effects synchronized with music. At the time, I had no prior coding experience and relied heavily on YouTube tutorials to guide me through the process. I had to adjust the code since the tutorial I followed differed from my setup, which required me to learn and adapt the coding skills on the go. This project not only introduced me to microcontrollers but also allowed me to explore programming and electronics in a hands-on way.",
+                        images: [
+                            "images/Projects/Arduino And WS2812B Based Music Reactive LED Tower/Image 01.jpg",
+                            "images/Projects/Arduino And WS2812B Based Music Reactive LED Tower/Image 02.jpg",
+                        ],
+                        
+                    },
+                    {
+                        title: "DIY CD4026 Decade Counter Based Flower Book",
+                        description: "Back at the beginning of 2022, before I knew it was possible to make PCBs at home, I made this for the most special person in my life. I had just discovered the CD4026 Decade Counter IC and was eager to put it to use. The idea was to make an alternating LED flower book that lit up when opened. I used a mechanical switch that would connect and disconnect as the book was opened and closed, ensuring smooth operation with a capacitor for debouncing. Since I wasn’t aware of PCB production at the time, I soldered a lot of wires and connected tons of LEDs by hand. I designed a BJT-based LED network to manage the low current output from the CD4026, using 4-pin, 3-colored LEDs, along with white LEDs for lighting. The power came from an old mobile battery and a charger module, and after all the effort, the result was a simple yet elegant gift.",
+                        images: [
+                            "images/Projects/CD4026 Based Flower Book/Image 01.jpg",
+                            "images/Projects/CD4026 Based Flower Book/Image 02.jpg",
+                        ],
                         
                     },
 
@@ -404,6 +602,10 @@
 
                     updateProjectDetails(); // Update project details
                     updateImage(); // Automatically update the image
+
+                    if (window.innerWidth <= 768) {
+                        toggleProjectList();
+                    }
                 }
             
                 function nextImage() {
@@ -424,10 +626,9 @@
 
                     const currentProject = projects[currentProjectIndex];
                     projectTitle.textContent = currentProject.title;
-                    projectDescription.textContent = currentProject.description;
+                    projectDescription.innerHTML = currentProject.description; // Use innerHTML to render HTML content
 
                     // Set the initial image description
-                    
                     updateImage();
                 }
             
@@ -438,6 +639,24 @@
                 }
                 
                 showProject(0);
+
+                function toggleProjectList() {
+                    var projectList = document.getElementById('projectList');
+                    if (window.innerWidth <= 768) { 
+                        if (projectList.style.display === 'none' || projectList.style.display === '') {
+                            projectList.style.display = 'block';
+                        } else {
+                            projectList.style.display = 'none';
+                        }
+                    }
+                }
+
+                window.onload = function() {
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('projectList').style.display = 'none';
+                    }
+                };
+
             </script>
 
             <script>

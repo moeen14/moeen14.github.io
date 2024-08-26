@@ -117,6 +117,91 @@
                 font-size: 14px; /* Set the font size for the date */
             }
 
+            #toggleList {
+                display: none;
+            }
+
+            .project-list {
+                display: block;
+            }
+
+            /* Your existing styles remain unchanged */
+
+            @media (min-width: 768px) {
+                .project-list {
+                    max-height: 600px; /* Adjust the height as needed */
+                    overflow-y: auto; /* Add vertical scroll bar if content exceeds max-height */
+                }
+            }
+
+            @media (max-width: 768px) {
+
+                #toggleList {
+                    display: block; /* Show the toggle button on mobile */
+                }
+
+                .project-list {
+                    display: none; /* Hide the project list initially on mobile */
+                }
+
+                .project-container {
+                    flex-direction: column;
+                }
+
+                #toggleList {
+                    display: block;
+                    background-color: #ffffff98;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    
+                }
+
+                .project-list {
+                    width: 100%;
+                    padding: 10px;
+                    display: none; /* Initially hidden */
+                }
+
+                .project-list h2 {
+                    font-size: 20px; /* Adjust font size for the heading in the list */
+                    margin-bottom: 10px; /* Add margin below the heading */
+                }
+
+                .project-list li {
+                    padding: 10px; /* Adjust padding for list items */
+                    font-size: 10px; /* Adjust font size for list items */
+                    margin-bottom: 5px; /* Add margin below list items */
+                    border-radius: 5px; /* Rounded corners for list items */
+                }
+
+                .project-details {
+                    width: 100%;
+                    padding: 10px;
+                }
+
+                .image-button {
+                    padding-left: 8px; /* Adjust padding for image buttons */
+                    padding-right: 8px;
+                }
+
+                #prevButton, #nextButton {
+                    position: static; /* Reset button position on mobile */
+                    margin: 5px 0; /* Add margin around buttons */
+                    display: inline-block; /* Display buttons inline */
+                }
+
+                #project-title {
+                    font-size: 14px; /* Adjust font size for project title */
+                    margin-top: 10px; /* Adjust margin for the title */
+                }
+
+                #project-description {
+                    font-size: 10px; /* Adjust font size for project description */
+                }
+
+
+            }
                                 
 		</style>
 		
@@ -137,6 +222,7 @@
 								<ul class="icons">
 									<li><a href="https://www.linkedin.com/in/moeen-ul-islam-973736285" target="_blank" class="fab fa-linkedin" title="LinkedIn" style="font-size: 20px;"></a></li>
 									<li><a href="https://www.researchgate.net/profile/Moeen-Ul-Islam" target="_blank" class="fab fa-researchgate" title="ResearchGate" style="font-size: 20px;"></a></li>
+                                    <li><a href="https://github.com/moeen14" target="_blank" class="fab fa-github" title="GitHub" style="font-size: 20px;"></a></li>
 									<li><a href="https://www.facebook.com/profile.php?id=100073217057451&mibextid=ZbWKwL" target="_blank" class="fab fa-facebook" title="Facebook" style="font-size: 20px;"></a></li>
 									<li><a href="https://drive.google.com/file/d/19fgpbnKcEASh4at2VJVVbWVW4k8BhxYo/view?usp=sharing" target="_blank" class="fas fa-file" title="Resume" style="font-size: 20px;"></a></li>
 								</ul>
@@ -145,29 +231,30 @@
 							<!-- Content -->
                             <section>
                                 <div class="project-container">
-                                    <!-- Project List (1/3 of the screen) -->
-                                    <div class="project-list" style="float: left; width: 33%;">
+                                    <!-- Toggle Button for Project List (Visible only on mobile) -->
+                                    <button id="toggleList" onclick="toggleProjectList()">View More</button>
+                                    
+                                    <!-- Project List (Initially Hidden on Mobile) -->
+                                    <div class="project-list" id="projectList">
                                         <h2>Rapid Prototyping and Research</h2>
                                         <ul>
                                             <li onclick="showProject(0)">IR Sensor and IC Based 7 Segment Car Parking Counter</li>
                                             <li onclick="showProject(1)">Prototyping IoT Smart Home</li>
                                             <!-- Add more project items as needed -->
                                         </ul>
-                                        
                                     </div>
+                                    
                                     <!-- Project Details (2/3 of the screen) -->
-                                    <div class="project-details" style="float: left; width: 66%;">
+                                    <div class="project-details">
                                         <div id="image-container" style="position: relative;">
-                                            <img id="image" src="images/Achievements/Dean's Award/Image 01.jpg" alt="Image" width="600" height="400" />
+                                            <img id="image" alt="Image" width="600" height="400" />
                                             <div>
                                                 <button id="prevButton" class="image-button" onclick="prevImage()">   Prev   </button>
                                                 <button id="nextButton" class="image-button" onclick="nextImage()">   Next   </button>
-                                                
                                             </div>
                                         </div>
-                                        
                                         <h2 id="project-title" style="margin-top: 20px;">Project 1 Title</h2>
-                                        <p id="project-description" style="color: rgb(0, 0, 0)">Project 1 Description</p>                                        
+                                        <p id="project-description" style="color: rgb(0, 0, 0)">Project 1 Description</p>
                                     </div>
                                 </div>
                             </section>
@@ -187,6 +274,7 @@
 										<ul class="icons">
 											<li><a href="https://www.linkedin.com/in/moeen-ul-islam-973736285" target="_blank" class="fab fa-linkedin" title="LinkedIn" style="font-size: 25px; ;"></a></li>
 											<li><a href="https://www.researchgate.net/profile/Moeen-Ul-Islam" target="_blank" class="fab fa-researchgate" title="ResearchGate" style="font-size: 25px; "></a></li>
+                                            <li><a href="https://github.com/moeen14" target="_blank" class="fab fa-github" title="GitHub" style="font-size: 25px;"></a></li>
 											<li><a href="https://www.facebook.com/profile.php?id=100073217057451&mibextid=ZbWKwL" target="_blank" class="fab fa-facebook" title="Facebook" style="font-size: 25px;"></a></li>
 										</ul>
 										<p style="font-size: 14px; text-align: left;"><b>Connect with me on social media</b></p>
@@ -225,7 +313,7 @@
 
 							<footer id="footer" style="background-color: #333; padding: 10px;">
 								<p class="copyright" style="color: #fff; text-align: center; margin: 0;">
-									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 12 August, 2024
+									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 26 August, 2024
 								</p>
 							</footer>
 						</div>
@@ -322,7 +410,7 @@
                 const projects = [
                     {
                         title: "IR Sensor and IC Based 7 Segment Car Parking Counter",
-                        description: "",
+                        description: "For the IR Sensor and IC Based 7 Segment Car Parking Counter project, I started by building a prototype on a breadboard. This approach allowed me to test and refine the circuit before moving on to the final design. The prototype was instrumental in identifying potential issues and making necessary adjustments early on. I used IR sensors for detecting the presence of cars, along with ICs like the 74LS47 for driving the 7-segment displays, and a 555 timer for generating the necessary timing signals. The successful prototyping phase gave me confidence to proceed with the final implementation.",
                         images: [
                             "images/Skillset/Prototyping/IC Based Car Parking Counter/Image 01.jpg",
                             "images/Skillset/Prototyping/IC Based Car Parking Counter/Image 02.jpg",
@@ -330,7 +418,7 @@
                     },
                     {
                         title: "Prototyping IoT Smart Home",
-                        description: "",
+                        description: "I began by individually testing each component on a breadboard. This method allowed me to validate the functionality of each element before integrating them into the final design. Initially, I used an Arduino Nano to write and test the code, ensuring that components like the dual-channel relay, LDR for light detection, and the noise detection module worked as expected. Prototyping was crucial because it enabled me to troubleshoot and optimize the system in stages, significantly reducing the risk of errors in the final product. Once everything was functioning correctly, I transitioned to an ESP32 for the final implementation, taking advantage of its advanced features for IoT applications. The careful prototyping process ensured a smooth transition to the final smart home system.",
                         images: [
                             "images/Skillset/Prototyping/IoT Smart Home/Image 01.jpg",
                             "images/Skillset/Prototyping/IoT Smart Home/Image 02.jpg",
@@ -363,6 +451,10 @@
 
                     updateProjectDetails(); // Update project details
                     updateImage(); // Automatically update the image
+
+                    if (window.innerWidth <= 768) {
+                        toggleProjectList();
+                    }
                 }
             
                 function nextImage() {
@@ -383,10 +475,9 @@
 
                     const currentProject = projects[currentProjectIndex];
                     projectTitle.textContent = currentProject.title;
-                    projectDescription.textContent = currentProject.description;
+                    projectDescription.innerHTML = currentProject.description; 
 
                     // Set the initial image description
-                    
                     updateImage();
                 }
             
@@ -397,6 +488,24 @@
                 }
                 
                 showProject(0);
+
+              
+                function toggleProjectList() {
+                    var projectList = document.getElementById('projectList');
+                    if (window.innerWidth <= 768) { 
+                        if (projectList.style.display === 'none' || projectList.style.display === '') {
+                            projectList.style.display = 'block';
+                        } else {
+                            projectList.style.display = 'none';
+                        }
+                    }
+                }
+
+                window.onload = function() {
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('projectList').style.display = 'none';
+                    }
+                };
             </script>
 
             <script>

@@ -117,6 +117,92 @@
                 font-size: 14px; /* Set the font size for the date */
             }
 
+            #toggleList {
+                display: none;
+            }
+
+            .project-list {
+                display: block;
+            }
+
+            /* Your existing styles remain unchanged */
+
+            @media (min-width: 768px) {
+                .project-list {
+                    max-height: 600px; /* Adjust the height as needed */
+                    overflow-y: auto; /* Add vertical scroll bar if content exceeds max-height */
+                }
+            }
+
+            @media (max-width: 768px) {
+
+                #toggleList {
+                    display: block; /* Show the toggle button on mobile */
+                }
+
+                .project-list {
+                    display: none; /* Hide the project list initially on mobile */
+                }
+
+                .project-container {
+                    flex-direction: column;
+                }
+
+                #toggleList {
+                    display: block;
+                    background-color: #ffffff98;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    
+                }
+
+                .project-list {
+                    width: 100%;
+                    padding: 10px;
+                    display: none; /* Initially hidden */
+                }
+
+                .project-list h2 {
+                    font-size: 20px; /* Adjust font size for the heading in the list */
+                    margin-bottom: 10px; /* Add margin below the heading */
+                }
+
+                .project-list li {
+                    padding: 10px; /* Adjust padding for list items */
+                    font-size: 10px; /* Adjust font size for list items */
+                    margin-bottom: 5px; /* Add margin below list items */
+                    border-radius: 5px; /* Rounded corners for list items */
+                }
+
+                .project-details {
+                    width: 100%;
+                    padding: 10px;
+                }
+
+                .image-button {
+                    padding-left: 8px; /* Adjust padding for image buttons */
+                    padding-right: 8px;
+                }
+
+                #prevButton, #nextButton {
+                    position: static; /* Reset button position on mobile */
+                    margin: 5px 0; /* Add margin around buttons */
+                    display: inline-block; /* Display buttons inline */
+                }
+
+                #project-title {
+                    font-size: 14px; /* Adjust font size for project title */
+                    margin-top: 10px; /* Adjust margin for the title */
+                }
+
+                #project-description {
+                    font-size: 10px; /* Adjust font size for project description */
+                }
+
+
+            }
+
                                 
 		</style>
 		
@@ -146,8 +232,11 @@
 							<!-- Content -->
                             <section>
                                 <div class="project-container">
-                                    <!-- Project List (1/3 of the screen) -->
-                                    <div class="project-list" style="float: left; width: 33%;">
+                                    <!-- Toggle Button for Project List (Visible only on mobile) -->
+                                    <button id="toggleList" onclick="toggleProjectList()">View More</button>
+                                    
+                                    <!-- Project List (Initially Hidden on Mobile) -->
+                                    <div class="project-list" id="projectList">
                                         <h2>Micro-Controller and Single Board Computers (SBCs)</h2>
                                         <ul>
                                             <li onclick="showProject(0)">Arduino Development Boards</li>
@@ -158,9 +247,9 @@
                                         
                                     </div>
                                     <!-- Project Details (2/3 of the screen) -->
-                                    <div class="project-details" style="float: left; width: 66%;">
+                                    <div class="project-details">
                                         <div id="image-container" style="position: relative;">
-                                            <img id="image" src="images/Achievements/Dean's Award/Image 01.jpg" alt="Image" width="600" height="400" />
+                                            <img id="image" alt="Image" width="600" height="400" />
                                             <div>
                                                 <button id="prevButton" class="image-button" onclick="prevImage()">   Prev   </button>
                                                 <button id="nextButton" class="image-button" onclick="nextImage()">   Next   </button>
@@ -228,7 +317,7 @@
 
 							<footer id="footer" style="background-color: #333; padding: 10px;">
 								<p class="copyright" style="color: #fff; text-align: center; margin: 0;">
-									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 12 August, 2024
+									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 26 August, 2024
 								</p>
 							</footer>
 						</div>
@@ -325,7 +414,7 @@
                 const projects = [
                     {
                         title: "Extensive Experience with Arduino Development Boards",
-                        description: "",
+                        description: "I have extensive hands-on experience with Arduino development boards, going beyond basic coding to include advanced skills in port manipulation, register-based coding, and working with interrupts. My proficiency with various communication protocols, such as I2C, SPI, and UART, enables seamless integration and efficient communication between components. This expertise has been crucial in developing sophisticated, reliable systems for a wide range of applications, demonstrating my ability to leverage Arduino boards to their full potential.",
                         images: [
                             "images/Skillset/Micro Controllers and SBCs/Arduino/Image 01.jpg",
                             "images/Skillset/Micro Controllers and SBCs/Arduino/Image 02.jpg",
@@ -334,7 +423,7 @@
                     },
                     {
                         title: "Fluent with ESP Development Boards for IoT Projects",
-                        description: "",
+                        description: "I am fluent in using ESP development boards, such as the ESP32 and ESP8266, for a variety of IoT projects. My expertise includes implementing Wi-Fi and Bluetooth connectivity, handling various communication protocols, and integrating sensors and actuators to build interconnected systems. I have successfully designed and developed IoT solutions that involve remote data monitoring, control, and automation. My experience extends to programming the ESP boards for efficient real-time data processing and communication, making me adept at leveraging these powerful tools to create innovative and functional IoT applications.",
                         images: [
                             "images/Skillset/Micro Controllers and SBCs/ESP32/Image 01.jpg",
                             "images/Skillset/Micro Controllers and SBCs/ESP32/Image 02.jpg",
@@ -344,7 +433,7 @@
                     },
                     {
                         title: "Comfortable with Hybrid Systems that incorporate Micro-Controllers and SBCs",
-                        description: "",
+                        description: "I am comfortable working with hybrid systems that integrate microcontrollers and Single Board Computers (SBCs). My experience includes designing and developing projects that utilize the strengths of both microcontrollers, such as Arduino and ESP boards, and SBCs like Raspberry Pi and Jetson Nano. This involves creating efficient interfaces between the components, managing data flow, and ensuring seamless communication between the microcontroller's precise control capabilities and the SBC's processing power. I have applied this knowledge to various applications, including robotics, automation, and IoT projects, enhancing functionality and performance through effective system integration.",
                         images: [
                             "images/Skillset/Micro Controllers and SBCs/SBC and Microcontroller/Image 01.jpg",
                             "images/Skillset/Micro Controllers and SBCs/SBC and Microcontroller/Image 02.jpg",
@@ -375,6 +464,10 @@
 
                     updateProjectDetails(); // Update project details
                     updateImage(); // Automatically update the image
+
+                    if (window.innerWidth <= 768) {
+                        toggleProjectList();
+                    }
                 }
             
                 function nextImage() {
@@ -395,10 +488,9 @@
 
                     const currentProject = projects[currentProjectIndex];
                     projectTitle.textContent = currentProject.title;
-                    projectDescription.textContent = currentProject.description;
+                    projectDescription.innerHTML = currentProject.description; // Use innerHTML to render HTML content
 
                     // Set the initial image description
-                    
                     updateImage();
                 }
             
@@ -409,6 +501,24 @@
                 }
                 
                 showProject(0);
+
+                function toggleProjectList() {
+                    var projectList = document.getElementById('projectList');
+                    if (window.innerWidth <= 768) { 
+                        if (projectList.style.display === 'none' || projectList.style.display === '') {
+                            projectList.style.display = 'block';
+                        } else {
+                            projectList.style.display = 'none';
+                        }
+                    }
+                }
+
+                window.onload = function() {
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('projectList').style.display = 'none';
+                    }
+                };
+
             </script>
 
             <script>

@@ -27,7 +27,7 @@
 
             
             
-            img {
+img {
                 max-width: 100%;
                 height: auto;
             }
@@ -119,6 +119,92 @@
                 font-size: 14px; /* Set the font size for the date */
             }
 
+            #toggleList {
+                display: none;
+            }
+
+            .project-list {
+                display: block;
+            }
+
+            /* Your existing styles remain unchanged */
+
+            @media (min-width: 768px) {
+                .project-list {
+                    max-height: 600px; /* Adjust the height as needed */
+                    overflow-y: auto; /* Add vertical scroll bar if content exceeds max-height */
+                }
+            }
+
+            @media (max-width: 768px) {
+
+                #toggleList {
+                    display: block; /* Show the toggle button on mobile */
+                }
+
+                .project-list {
+                    display: none; /* Hide the project list initially on mobile */
+                }
+
+                .project-container {
+                    flex-direction: column;
+                }
+
+                #toggleList {
+                    display: block;
+                    background-color: #ffffff98;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    
+                }
+
+                .project-list {
+                    width: 100%;
+                    padding: 10px;
+                    display: none; /* Initially hidden */
+                }
+
+                .project-list h2 {
+                    font-size: 20px; /* Adjust font size for the heading in the list */
+                    margin-bottom: 10px; /* Add margin below the heading */
+                }
+
+                .project-list li {
+                    padding: 10px; /* Adjust padding for list items */
+                    font-size: 10px; /* Adjust font size for list items */
+                    margin-bottom: 5px; /* Add margin below list items */
+                    border-radius: 5px; /* Rounded corners for list items */
+                }
+
+                .project-details {
+                    width: 100%;
+                    padding: 10px;
+                }
+
+                .image-button {
+                    padding-left: 8px; /* Adjust padding for image buttons */
+                    padding-right: 8px;
+                }
+
+                #prevButton, #nextButton {
+                    position: static; /* Reset button position on mobile */
+                    margin: 5px 0; /* Add margin around buttons */
+                    display: inline-block; /* Display buttons inline */
+                }
+
+                #project-title {
+                    font-size: 14px; /* Adjust font size for project title */
+                    margin-top: 10px; /* Adjust margin for the title */
+                }
+
+                #project-description {
+                    font-size: 10px; /* Adjust font size for project description */
+                }
+
+
+            }
+
                                 
 		</style>
 		
@@ -148,20 +234,24 @@
 							<!-- Content -->
                             <section>
                                 <div class="project-container">
-                                    <!-- Project List (1/3 of the screen) -->
-                                    <div class="project-list" style="float: left; width: 33%;">
+                                    <!-- Toggle Button for Project List (Visible only on mobile) -->
+                                    <button id="toggleList" onclick="toggleProjectList()">View More</button>
+                                    
+                                    <!-- Project List (Initially Hidden on Mobile) -->
+                                    <div class="project-list" id="projectList">
                                         <h2>Achievements List</h2>
                                         <ul>
-                                            <li onclick="showProject(0)">Dean's Award for the Best Capstone Project<span class="project-date">05.10.23</span></li>
-                                            <li onclick="showProject(1)">Dean's List Honors for Academic Excellence<span class="project-date">01.03.23</span></li>
+                                            <li onclick="showProject(0)">Champions of the Idea Presentation Competition, BAIUST'23<span class="project-date">09.12.23</span></li>
+                                            <li onclick="showProject(1)">Dean's Award for the Best Capstone Project<span class="project-date">05.10.23</span></li>
+                                            <li onclick="showProject(2)">Dean's List Honors for Academic Excellence<span class="project-date">01.03.23</span></li>
                                             <!-- Add more project items as needed -->
                                         </ul>
                                         
                                     </div>
                                     <!-- Project Details (2/3 of the screen) -->
-                                    <div class="project-details" style="float: left; width: 66%;">
+                                    <div class="project-details">
                                         <div id="image-container" style="position: relative;">
-                                            <img id="image" src="images/Achievements/Dean's Award/Image 01.jpg" alt="Image" width="600" height="400" />
+                                            <img id="image"  alt="Image" width="600" height="400" />
                                             <div>
                                                 <button id="prevButton" class="image-button" onclick="prevImage()">   Prev   </button>
                                                 <button id="nextButton" class="image-button" onclick="nextImage()">   Next   </button>
@@ -229,7 +319,7 @@
 
 							<footer id="footer" style="background-color: #333; padding: 10px;">
 								<p class="copyright" style="color: #fff; text-align: center; margin: 0;">
-									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 12 August, 2024
+									&copy; All rights reserved | Created by <b style ="color:rgb(255, 255, 255)">Moeen Ul Islam</b> | Built: Oct 28, 2023 | Last Updated: 26 August, 2024
 								</p>
 							</footer>
 						</div>
@@ -327,8 +417,16 @@
             const urlParams = new URLSearchParams(window.location.search);
             const projectIndex = urlParams.get('project');
 
-            // Define an array of project data
+            // Define an array of project data  
             const projects = [
+                {
+                    title: "Champions of the Idea Presentation Competition, BAIUST'23",
+                    description: "I am incredibly grateful to my team for their dedication and hard work. Even when I had to travel to India on a medical emergency, we stayed connected, and their commitment ensured that we could pull through and win the competition. Their efforts were instrumental in our success.",
+                    images: [
+                        "images/Achievements/BAIUST23 EEE Day Champion/Image 01.jpg",
+                        "images/Achievements/BAIUST23 EEE Day Champion/Image 02.jpg",
+                    ],                        
+                },
                 {
                     title: "Dean's Award for the Best Capstone Project (Summer 22-23)",
                     description: "We are thrilled to have been awarded the 'Dean's Award' for our exceptional eight-month-long dedication to the project titled 'Multi-Functional Quadruped Robot with Advanced Locomotion, Remote Operability, and Cognitive Capabilities.' This journey was a labor of love, and we extend our heartfelt thanks to our esteemed faculty members and mentors, particularly our suppervisor, Mr. Chowdhury Akram Hossain, Associate Professor and Department Head of CoE, and Dr. Shameem Ahmad, our External Supervisor and Assistant Professor, who played crucial roles in guiding us to success. It's a moment of gratitude and celebration, and I am personally humbled and thankful for the incredible opportunity and the unyielding spirit that brought this vision to life.",
@@ -369,6 +467,9 @@
 
                 updateProjectDetails(); // Update project details
                 updateImage(); // Automatically update the image
+                if (window.innerWidth <= 768) {
+                        toggleProjectList();
+                    }
             }
         
             function nextImage() {
@@ -384,17 +485,16 @@
 
         
             function updateProjectDetails() {
-                const projectTitle = document.getElementById("project-title");
-                const projectDescription = document.getElementById("project-description");
+                    const projectTitle = document.getElementById("project-title");
+                    const projectDescription = document.getElementById("project-description");
 
-                const currentProject = projects[currentProjectIndex];
-                projectTitle.textContent = currentProject.title;
-                projectDescription.textContent = currentProject.description;
+                    const currentProject = projects[currentProjectIndex];
+                    projectTitle.textContent = currentProject.title;
+                    projectDescription.innerHTML = currentProject.description; 
 
-                // Set the initial image description
-                
-                updateImage();
-            }
+                    // Set the initial image description
+                    updateImage();
+                }
         
             function updateImage() {
                 const projectImage = document.getElementById("image");
@@ -403,6 +503,23 @@
             }
             
             showProject(0);
+
+            function toggleProjectList() {
+                    var projectList = document.getElementById('projectList');
+                    if (window.innerWidth <= 768) { 
+                        if (projectList.style.display === 'none' || projectList.style.display === '') {
+                            projectList.style.display = 'block';
+                        } else {
+                            projectList.style.display = 'none';
+                        }
+                    }
+                }
+
+                window.onload = function() {
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('projectList').style.display = 'none';
+                    }
+                };
 
                 
             </script>
