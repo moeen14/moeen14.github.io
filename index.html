@@ -40,6 +40,7 @@
 			}
 		</style>
 
+		
 	</head>
 	<body class="is-preload">
 
@@ -67,12 +68,14 @@
 							<section id="banner">
 								<div class="content">
 									<header>
-										<h1>Hi, I'm <span style="font-size: larger; color: rgb(219, 41, 41);">Moeen Ul Islam</b></h1>
-										<p style="color: #000000;"> <b>Electrical and Electronic Engineering Graduate</b></p>
+									  <h2>Hi, I'm <span style="font-size: larger; color: rgb(219, 41, 41);">Moeen Ul Islam</span></h2>
+									  <p style="color: #000000;"><b>Electrical and Electronic Engineering Graduate</b></p>
 									</header>
-									<p style="color: #000000;">With a passion for digital electronics, robotics, automation, IoT, and machine learning, I have a strong academic foundation, extensive practical experience with many hardware based projects and I am dedicated to pursuing a career in academia. My goal is to inspire and educate while contributing to research initiatives, bridging theory and practice, and fostering innovation in a dynamic academic environment. Explore my digital portfolio to learn more about my journey and projects.</p>
-								
+									<p style="color: #000000; animation: fadeInUp 1.5s ease-out;">With a passion for digital electronics, robotics, automation, IoT, and machine learning, I have a strong academic foundation and extensive practical experience. I am dedicated to pursuing a career in academia, aiming to inspire and educate while contributing to research initiatives. Explore my digital portfolio to learn more about my journey and projects.</p>
+									
+									<div id="typed-text" style="color: #000000; font-weight: bold; font-size: larger;"></div>
 								</div>
+
 								<span class="image object">
 									<img src="images/Main Photo.jpg" alt="" />
 								</span>
@@ -326,7 +329,46 @@
 					}
 				  });
 				});
-			</script>	
+			</script>
+			
+			<script>
+			const phrases = [
+				"Innovating in Robotics and Automation with Embedded Systems",
+				"Mastering PCB Design, Fabrication, and Complex Circuits",
+				"Expert in 3D Modeling and Precision Prototyping",
+				"Advancing Research in Machine Learning and Autonomous Navigation",
+				"Proficient in Programming and IoT Integration"
+			];
+
+			let index = 0;
+			let charIndex = 0;
+			const typedText = document.getElementById('typed-text');
+
+			function type() {
+				if (charIndex < phrases[index].length) {
+					typedText.innerHTML += phrases[index].charAt(charIndex);
+					charIndex++;
+					setTimeout(type, 30); 
+				} else {
+					setTimeout(erase, 2000); 
+				}
+			}
+
+			function erase() {
+				if (charIndex > 0) {
+					typedText.innerHTML = phrases[index].substring(0, charIndex - 1);
+					charIndex--;
+					setTimeout(erase, 10); 
+				} else {
+					index = (index + 1) % phrases.length;
+					setTimeout(type, 500); 
+				}
+			}
+
+			document.addEventListener('DOMContentLoaded', (event) => {
+				setTimeout(type, 1000); 
+			});
+			</script>
 				  
 	</body>
 </html>
